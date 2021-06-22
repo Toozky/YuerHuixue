@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuerhuixue.mapper.UserMapper">
+
+    <select id="userLogin" resultType="user">
+        select * from tb_user where name=#{name} and pass=#{pass}
+    </select>
+
+    <insert id="userRegister" parameterType="user">
+        insert into tb_user (name, tel, email, address, pass, date, isBusinessman)
+        value (#{name}, #{tel}, #{eamil}, #{address}, #{pass}, #{date}, #{isBusinessman})
+    </insert>
+
+    <select id="findAllUser" resultType="user">
+        select * from tb_user;
+    </select>
+
+</mapper>
