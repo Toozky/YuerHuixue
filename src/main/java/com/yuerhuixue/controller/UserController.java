@@ -19,13 +19,7 @@ public class UserController {
 
     @RequestMapping("userLogin.do")
     public String userLogin(String name, String pass) throws SQLException {
-
-        List<User> users = userService.findAllUser();
-        System.out.println(users);
-
         User user = userService.userLogin(name, pass);
-        System.out.println(user);
-
         if (user!=null){
             return "usersuccessful";
         }else {

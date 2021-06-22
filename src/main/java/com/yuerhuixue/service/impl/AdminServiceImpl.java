@@ -1,14 +1,15 @@
-package com.yuerhuixue.service;
+package com.yuerhuixue.service.impl;
 
 import com.yuerhuixue.mapper.AdminMapper;
 import com.yuerhuixue.pojo.Admin;
+import com.yuerhuixue.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
 
 @Service
-public class AdminServiceImpl implements AdminService{
+public class AdminServiceImpl implements AdminService {
 
     @Autowired
     private AdminMapper adminMapper;

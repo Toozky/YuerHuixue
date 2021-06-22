@@ -16,7 +16,4 @@ public interface UserMapper {
     //注册
     public boolean userRegister(User user) throws SQLException;
 
-    //查询全部用户
-    public List<User> findAllUser() throws SQLException;
-
 }

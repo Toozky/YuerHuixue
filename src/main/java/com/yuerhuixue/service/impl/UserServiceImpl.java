@@ -1,15 +1,15 @@
-package com.yuerhuixue.service;
+package com.yuerhuixue.service.impl;
 
 import com.yuerhuixue.mapper.UserMapper;
 import com.yuerhuixue.pojo.User;
+import com.yuerhuixue.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
-import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserMapper userMapper;
@@ -26,11 +26,6 @@ public class UserServiceImpl implements UserService{
     @Override
     public boolean userRegister(User user) throws SQLException {
         return userMapper.userRegister(user);
-    }
-
-    @Override
-    public List<User> findAllUser() throws SQLException {
-        return userMapper.findAllUser();
     }
 
 }

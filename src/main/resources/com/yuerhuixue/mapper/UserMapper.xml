@@ -13,8 +13,4 @@
         value (#{name}, #{tel}, #{eamil}, #{address}, #{pass}, #{date}, #{isBusinessman})
     </insert>
 
-    <select id="findAllUser" resultType="user">
-        select * from tb_user;
-    </select>
-
 </mapper>
