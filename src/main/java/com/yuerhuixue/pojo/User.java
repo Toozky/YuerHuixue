@@ -21,7 +21,7 @@ public class User {
     private String address;
     private String pass;
     private Date date;
-    private Boolean isBusinessman;
+    private Boolean isBusinessman= false;
 
     public User(String name, String tel, String email, String address, String pass) {
         this.name = name;
@@ -35,6 +35,5 @@ public class User {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         sdf.format(date);
 
-        this.isBusinessman = false;
     }
 }

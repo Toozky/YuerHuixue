@@ -27,7 +27,11 @@ public class Admin {
         date=new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         sdf.format(date);
-
     }
 
+    public void setDate() {
+        date=new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        sdf.format(date);
+    }
 }

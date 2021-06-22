@@ -67,7 +67,7 @@ public class UserController {
         }
     }
 
-    @RequestMapping("logout.do")
+    @RequestMapping("userLogout.do")
     public String userLogout(HttpSession session){
         session.removeAttribute("user");
         return "userlogin";
