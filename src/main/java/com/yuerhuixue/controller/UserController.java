@@ -28,7 +28,8 @@ public class UserController {
     }
 
     @RequestMapping("userRegister.do")
-    public String  userRegister(User user) throws SQLException {
+    public String  userRegister(String name, String tel, String email, String address, String pass) throws SQLException {
+        User user = new User(name, tel, email, address, pass);
         Boolean b = userService.userRegister(user);
         if (b){
             return "userlogin";

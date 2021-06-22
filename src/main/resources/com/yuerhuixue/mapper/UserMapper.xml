@@ -10,7 +10,7 @@
 
     <insert id="userRegister" parameterType="user">
         insert into tb_user (name, tel, email, address, pass, date, isBusinessman)
-        value (#{name}, #{tel}, #{eamil}, #{address}, #{pass}, #{date}, #{isBusinessman})
+        value (#{name}, #{tel}, #{email}, #{address}, #{pass}, #{date}, #{isBusinessman})
     </insert>
 
 </mapper>

@@ -27,7 +27,8 @@ public class AdminController {
     }
 
     @RequestMapping("adminRegister.do")
-    public String adminRegister(Admin admin) throws SQLException {
+    public String adminRegister(String name, String pass) throws SQLException {
+        Admin admin = new Admin(name, pass);
         Boolean b = adminService.adminRegister(admin);
         if (b){
             return "adminlogin";
