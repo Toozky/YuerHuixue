@@ -28,4 +28,14 @@ public class UserServiceImpl implements UserService {
         return userMapper.userRegister(user);
     }
 
+    @Override
+    public Boolean userModify(User user) throws SQLException {
+        return userMapper.userModify(user);
+    }
+
+    @Override
+    public Boolean userDelete(User user) throws SQLException {
+        return userMapper.userDelete(user);
+    }
+
 }

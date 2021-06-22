@@ -14,6 +14,12 @@ public interface UserMapper {
     public User userLogin(@Param("name") String name, @Param("pass") String pass) throws SQLException;
 
     //注册
-    public boolean userRegister(User user) throws SQLException;
+    public Boolean userRegister(User user) throws SQLException;
+
+    //修改个人信息
+    public Boolean userModify(User user) throws SQLException;
+
+    //删除用户
+    public Boolean userDelete(User user) throws SQLException;
 
 }

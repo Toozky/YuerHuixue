@@ -13,6 +13,6 @@ public interface AdminMapper {
     public Admin adminLogin(@Param("name") String name, @Param("pass") String pass) throws SQLException;
 
     //注册
-    public boolean adminRegister(Admin admin) throws SQLException;
+    public Boolean adminRegister(Admin admin) throws SQLException;
 
 }

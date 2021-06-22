@@ -13,11 +13,11 @@
 <body>
 
     <form action="userRegister.do" method="post">
-        用户名：<input type="text" name="name"><br>
-        手机号：<input type="text" name="tel"><br>
-        邮　箱：<input type="text" name="email"><br>
-        地　址：<input type="text" name="address"><br>
-        密　码：<input type="password" name="pass"><br>
+        用户名：<input type="text" name="name" placeholder="输入用户名"><br>
+        手机号：<input type="text" name="tel" placeholder="输入手机号"><br>
+        邮　箱：<input type="text" name="email" placeholder="输入邮箱"><br>
+        地　址：<input type="text" name="address" placeholder="输入地址"><br>
+        密　码：<input type="password" name="pass" placeholder="输入密码"><br>
         <input type="submit" value="注册"><br>
     </form>
 

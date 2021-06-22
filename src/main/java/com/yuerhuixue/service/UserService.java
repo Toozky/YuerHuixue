@@ -13,4 +13,10 @@ public interface UserService{
     //注册
     public boolean userRegister(User user) throws SQLException;
 
+    //修改个人信息
+    public Boolean userModify(User user) throws SQLException;
+
+    //删除用户
+    public Boolean userDelete(User user) throws SQLException;
+
 }

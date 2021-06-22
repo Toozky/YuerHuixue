@@ -13,4 +13,30 @@
         value (#{name}, #{tel}, #{email}, #{address}, #{pass}, #{date}, #{isBusinessman})
     </insert>
 
+    <update id="userModify" parameterType="user">
+        update tb_user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="name != null">
+                name=#{name},
+            </if>
+            <if test="tel != null">
+                tel=#{tel},
+            </if>
+            <if test="email != null">
+                email=#{email},
+            </if>
+            <if test="address != null">
+                address=#{address},
+            </if>
+            <if test="pass != null">
+                pass=#{pass}
+            </if>
+        </trim>
+        where id=#{id}
+    </update>
+
+    <delete id="userDelete" parameterType="user">
+        delete from tb_user where id=#{id}
+    </delete>
+
 </mapper>
