@@ -20,6 +20,5 @@
         密　码：<input type="password" name="pass" value="${user.pass}" placeholder="输入密码"><br>
         <input type="submit" value="更新"><br>
     </form>
-
 </body>
 </html>

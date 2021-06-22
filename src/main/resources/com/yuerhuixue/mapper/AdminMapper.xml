@@ -8,8 +8,31 @@
         select * from tb_admin where name=#{name} and pass=#{pass}
     </select>
 
-    <insert id="adminRegister" parameterType="Admin">
+    <insert id="adminRegister" parameterType="admin">
         insert into tb_admin (name, pass, date) value (#{name}, #{pass}, #{date})
     </insert>
 
+    <select id="adminList" resultType="admin">
+        select * from tb_admin
+    </select>
+
+    <delete id="adminDelete">
+        delete from tb_admin where id=#{id}
+    </delete>
+
+    <update id="adminModify">
+        update tb_admin
+        <trim prefix="set" suffixOverrides=",">
+            <if test="name != null">
+                name=#{name},
+            </if>
+            <if test="pass != null">
+                pass=#{pass},
+            </if>
+            <if test="email != null">
+                date=#{date},
+            </if>
+        </trim>
+        where id=#{id}
+    </update>
 </mapper>
