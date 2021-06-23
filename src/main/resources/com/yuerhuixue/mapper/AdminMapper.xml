@@ -61,7 +61,13 @@
                 address=#{address},
             </if>
             <if test="pass != null">
-                pass=#{pass}
+                pass=#{pass},
+            </if>
+            <if test="businessman==true">
+                businessman=1,
+            </if>
+            <if test="businessman==false">
+                businessman=0
             </if>
         </trim>
         where id=#{id}
