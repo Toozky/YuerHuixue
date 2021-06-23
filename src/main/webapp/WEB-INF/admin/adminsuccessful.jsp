@@ -1,5 +1,6 @@
 <%@ page import="com.yuerhuixue.pojo.Admin" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="com.yuerhuixue.pojo.User" %><%--
   Created by IntelliJ IDEA.
   User: pocoa
   Date: 2021/6/22
@@ -15,6 +16,7 @@
 <%
     Admin admin=(Admin)session.getAttribute("admin");
 //    List<Admin> admins= (List<Admin>)session.getAttribute("admins");
+    List<User> users=(List<User>)session.getAttribute("users");
 %>
 login successful!<br>
 欢迎管理员：[<%=admin.getName()%>]访问用户管理系统！<br>
@@ -46,34 +48,40 @@ login successful!<br>
 
 <hr>
 用户管理系统
-<%--<table>
+<table>
     <tr>
         <td>ID</td>
         <td>姓名</td>
+        <td>电话</td>
+        <td>电子邮箱</td>
+        <td>地址</td>
         <td>密码</td>
-
+        <td>是否二手卖家</td>
         <td>
             操作　
-            <a href="adminRegisterPage.do">新建</a>
+            <a href="admininsertuser.jsp">新建</a>
         </td>
     </tr>
     <%
-        for (Admin su : admins) {
+        for (User user : users) {
     %>
     <tr>
-        <td><%=su.getId()%></td>
-        <td><%=su.getName()%></td>
-        <td><%=su.getPass()%></td>
-
+        <td><%=user.getId()%></td>
+        <td><%=user.getName()%></td>
+        <td><%=user.getTel()%></td>
+        <td><%=user.getEmail()%></td>
+        <td><%=user.getAddress()%></td>
+        <td><%=user.getPass()%></td>
+        <td><%=user.getBusinessman()?"是":"否"%></td>
         <td>
-            <a href="adminModifyPage.do?id=<%=su.getId()%>">修改</a>　
-            <a href="adminDelete.do?id=<%=su.getId()%>">删除</a>
+            <a href="adminUpdateUserPage.do?id=<%=user.getId()%>">修改</a> 　
+            <a href="adminDeleteUser.do?id=<%=user.getId()%>">删除</a>
         </td>
     </tr>
     <%
         }
     %>
-</table>--%>
+</table>
 <form>
 
 </form>
