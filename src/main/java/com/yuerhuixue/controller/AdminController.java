@@ -61,7 +61,7 @@ public class AdminController {
             return "WEB-INF/admin/adminsuccessful";
         }
         adminService.adminDelete(id);
-        return "WEB-INF/admin/adminsuccessful";
+        return "adminlogin";
     }
 
     @RequestMapping("adminModifyPage.do")

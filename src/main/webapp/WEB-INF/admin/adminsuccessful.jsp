@@ -41,7 +41,7 @@ login successful!<br>
 
         <td>
             <a href="adminModifyPage.do">修改</a>　
-            <a href="adminDelete.do">删除</a>
+            <a href="adminDelete.do?id=<%=admin.getId()%>">删除</a>
         </td>
     </tr>
 </table>
