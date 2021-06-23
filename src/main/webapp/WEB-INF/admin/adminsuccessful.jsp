@@ -26,20 +26,22 @@ login successful!<br>
         <td>ID</td>
         <td>姓名</td>
         <td>密码</td>
-        <td>最后修改日期</td>
-        <td>操作</td>
+
+        <td>
+            操作　
+            <a href="adminRegisterPage.do">新建</a>
+        </td>
     </tr>
     <%
         for (Admin su : admins) {
-
     %>
     <tr>
         <td><%=su.getId()%></td>
         <td><%=su.getName()%></td>
         <td><%=su.getPass()%></td>
-        <td<%=su.getDate()%>></td>
+
         <td>
-            <a href="adminModifyPage.do?admin=<%=su%>">修改</a>　
+            <a href="adminModifyPage.do?id=<%=su.getId()%>">修改</a>　
             <a href="adminDelete.do?id=<%=su.getId()%>">删除</a>
         </td>
     </tr>

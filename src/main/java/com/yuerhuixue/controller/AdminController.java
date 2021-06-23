@@ -6,6 +6,7 @@ import org.apache.ibatis.jdbc.SQL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -51,24 +52,31 @@ public class AdminController {
     }
 
     @RequestMapping("adminModifyPage.do")
-    public String adminModifyPage(HttpServletRequest request, HttpSession session,Admin admin) throws SQLException{
-//        Admin admin = request.getParameter("admin");
-        session.setAttribute("admin",admin);
-        System.out.println("*******====*******");
-        System.out.println(admin.toString());
-        System.out.println("*******====*******");
-        return "WEB-INF/admin/adminmodify";
+    public String adminModifyPage(HttpSession session,Integer id) throws SQLException{
+        Admin admin = adminService.adminFindById(id);
+        if (admin==null){
+            return "WEB-INF/admin/adminsuccessful";
+        }else {
+            session.setAttribute("admin",admin);
+            return "WEB-INF/admin/adminmodify";
+        }
     }
 
     @RequestMapping("adminModify.do")
-    public String adminModify(Admin admin) throws SQLException{
-        System.out.println("**************");
-        System.out.println(admin.toString());
-        System.out.println("**************");
+    public String adminModify(HttpSession session,Admin admin) throws SQLException{
         Boolean b = adminService.adminModify(admin);
         if (b){
+            List<Admin> admins=adminService.adminList();
+            session.setAttribute("admin",admin);
+            session.setAttribute("admins",admins);
             return "WEB-INF/admin/adminsuccessful";
         }
         return "WEB-INF/admin/adminmodify";
+    }
+
+    @PatchMapping("adminRegisterPage")
+    public String adminRegisterPage() throws SQLException{
+
+        return "WEB-INF/admin/adminsuccessful";
     }
 }

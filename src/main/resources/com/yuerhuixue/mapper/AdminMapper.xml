@@ -9,7 +9,7 @@
     </select>
 
     <insert id="adminRegister" parameterType="admin">
-        insert into tb_admin (name, pass, date) value (#{name}, #{pass}, #{date})
+        insert into tb_admin (name, pass) value (#{name}, #{pass})
     </insert>
 
     <select id="adminList" resultType="admin">
@@ -29,10 +29,11 @@
             <if test="pass != null">
                 pass=#{pass},
             </if>
-            <if test="email != null">
-                date=#{date},
-            </if>
         </trim>
         where id=#{id}
     </update>
+
+    <select id="adminFindById" resultType="admin">
+        select * from tb_admin where id=#{id}
+    </select>
 </mapper>

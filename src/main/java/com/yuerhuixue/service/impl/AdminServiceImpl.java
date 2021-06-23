@@ -44,4 +44,9 @@ public class AdminServiceImpl implements AdminService {
     public Boolean adminModify(Admin admin) throws SQLException {
         return adminMapper.adminModify(admin);
     }
+
+    @Override
+    public Admin adminFindById(Integer id) throws SQLException {
+        return adminMapper.adminFindById(id);
+    }
 }

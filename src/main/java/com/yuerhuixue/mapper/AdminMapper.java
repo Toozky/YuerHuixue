@@ -25,4 +25,7 @@ public interface AdminMapper {
     //修改管理员信息
     public Boolean adminModify(Admin admin) throws SQLException;
 
+    //按id查询管理员
+    public Admin adminFindById(Integer id) throws SQLException;
+
 }
