@@ -17,7 +17,7 @@
         密　码：<input type="password" name="pass"/><br>
         <input type="submit" value="登录">
     </form>
-    <a href="adminregister.jsp">管理员注册</a><br>
+    <a href="adminRegisterPage.do">管理员注册</a><br>
 
 </body>
 </html>

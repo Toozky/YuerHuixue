@@ -22,8 +22,8 @@ login successful!<br>
 欢迎管理员：[<%=admin.getName()%>]访问用户管理系统！<br>
 <hr>
 <br>
-管理员信息表<br>
-<table>
+管理员信息<br>
+<table border="1px" cellspacing="0" cellpadding="5px">
     <tr>
         <td>ID</td>
         <td>姓名</td>
@@ -31,7 +31,7 @@ login successful!<br>
 
         <td>
             操作　
-            <a href="adminregister.jsp">新建</a>
+            <a href="adminRegisterPage.do">新建</a>
         </td>
     </tr>
     <tr>
@@ -47,8 +47,8 @@ login successful!<br>
 </table>
 
 <hr>
-用户管理系统
-<table>
+用户信息表
+<table border="1px" cellspacing="0" cellpadding="5px">
     <tr>
         <td>ID</td>
         <td>姓名</td>
@@ -82,8 +82,7 @@ login successful!<br>
         }
     %>
 </table>
-<form>
+<hr>
 
-</form>
 </body>
 </html>
