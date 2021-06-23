@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
-import java.util.List;
 
 @Controller
 public class AdminController {
@@ -23,9 +22,7 @@ public class AdminController {
     public String adminLogin(HttpSession session,String name, String pass) throws SQLException {
         Admin admin = adminService.adminLogin(name, pass);
         if (admin!=null){
-            List<Admin> admins=adminService.adminList();
             session.setAttribute("admin",admin);
-            session.setAttribute("admins",admins);
             return "WEB-INF/admin/adminsuccessful";
         }else {
             return "adminlogin";
@@ -50,13 +47,14 @@ public class AdminController {
     }
 
     @RequestMapping("adminModifyPage.do")
-    public String adminModifyPage(HttpSession session,Integer id) throws SQLException{
-        Admin admin = adminService.adminFindById(id);
-        if (admin==null){
-            return "WEB-INF/admin/adminsuccessful";
-        }else {
+    public String adminModifyPage(HttpSession session) throws SQLException{
+        Admin admin=(Admin)session.getAttribute("admin");
+        Admin findAdmin = adminService.adminFindById(admin.getId());
+        if (findAdmin.toString().equals(admin.toString())){
             session.setAttribute("admin",admin);
             return "WEB-INF/admin/adminmodify";
+        }else {
+            return "WEB-INF/admin/adminsuccessful";
         }
     }
 
@@ -64,17 +62,9 @@ public class AdminController {
     public String adminModify(HttpSession session,Admin admin) throws SQLException{
         Boolean b = adminService.adminModify(admin);
         if (b){
-            List<Admin> admins=adminService.adminList();
             session.setAttribute("admin",admin);
-            session.setAttribute("admins",admins);
-            return "WEB-INF/admin/adminsuccessful";
         }
-        return "WEB-INF/admin/adminmodify";
-    }
-
-    @PatchMapping("adminRegisterPage")
-    public String adminRegisterPage() {
-
         return "WEB-INF/admin/adminsuccessful";
     }
+
 }
