@@ -3,7 +3,6 @@ package com.yuerhuixue.service;
 import com.yuerhuixue.pojo.User;
 
 import java.sql.SQLException;
-import java.util.List;
 
 public interface UserService{
 

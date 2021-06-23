@@ -18,7 +18,7 @@
             <if test="name != null">
                 name=#{name},
             </if>
-            <if test="instype.id != null">
+            <if test="instype != null">
                 instype_id=#{instype.id},
             </if>
             <if test="price != null">

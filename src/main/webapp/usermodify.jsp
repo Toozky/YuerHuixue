@@ -13,6 +13,7 @@
 <body>
 
     <form action="userModify.do" method="post">
+        <input type="text" name="id" hidden="hidden" value="${user.id}">
         用户名：<input type="text" name="name" value="${user.name}" placeholder="输入用户名（必填）"><br>
         手机号：<input type="text" name="tel" value="${user.tel}" placeholder="输入手机号（必填）"><br>
         邮　箱：<input type="text" name="email" value="${user.email}" placeholder="输入邮箱"><br>

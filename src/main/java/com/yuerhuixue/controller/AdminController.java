@@ -3,12 +3,9 @@ package com.yuerhuixue.controller;
 import com.yuerhuixue.pojo.Admin;
 import com.yuerhuixue.pojo.User;
 import com.yuerhuixue.service.AdminService;
-import com.yuerhuixue.service.UserService;
-import org.apache.ibatis.jdbc.SQL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;

@@ -36,14 +36,13 @@ public class InstrumentController {
         }else {
             return "instrumentlist";
         }
-
     }
 
     @RequestMapping("instrumentModify.do")
     public String instrumentModify(Instrument instrument, HttpSession session) throws SQLException {
-        instrument = (Instrument) session.getAttribute("instrument");
         Boolean b = instrumentService.instrumentModify(instrument);
         if (b){
+            session.removeAttribute("instrument");
             return "instrumentlist";
         }else {
             return "instrumentmodify";
