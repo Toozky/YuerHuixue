@@ -29,7 +29,7 @@ login successful!<br>
 
         <td>
             操作　
-            <a href="adminRegisterPage.do">新建</a>
+            <a href="adminregister.jsp">新建</a>
         </td>
     </tr>
     <tr>

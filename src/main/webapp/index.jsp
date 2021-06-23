@@ -13,7 +13,7 @@
 <body>
 
     <a href="adminlogin.jsp">管理员登录</a><br>
-    <a>管理员注册</a><br>
+    <a href="adminregister.jsp">管理员注册</a><br>
     <a href="userlogin.jsp">用户登录</a><br>
     <a href="userregister.jsp">用户注册</a><br>
     <a href="instrumentmanage.jsp">乐器管理</a>
