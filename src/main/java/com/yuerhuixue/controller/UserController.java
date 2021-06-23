@@ -23,7 +23,6 @@ public class UserController {
     @RequestMapping("userLogin.do")
     public String userLogin(String name, String pass, HttpSession session) throws SQLException {
         User user = userService.userLogin(name, pass);
-        System.out.println(user);
         if (user!=null){
             session.setAttribute("user", user);
             return "usersuccessful";
@@ -45,7 +44,8 @@ public class UserController {
 
     @RequestMapping("userModify.do")
     public String userUpdate(String name, String tel, String email, String address, String pass, HttpSession session) throws SQLException {
-        User user = new User(name, tel, email, address, pass);
+        User userTemp = (User) session.getAttribute("user");
+        User user = new User(userTemp.getId(), name, tel, email, address, pass);
         Boolean b = userService.userModify(user);
         if (b){
             session.setAttribute("user", user);

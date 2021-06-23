@@ -20,8 +20,7 @@ public class User {
     private String email;
     private String address;
     private String pass;
-    private Date date;
-    private Boolean isBusinessman= false;
+    private Boolean businessman;
 
     public User(String name, String tel, String email, String address, String pass) {
         this.name = name;
@@ -29,11 +28,17 @@ public class User {
         this.email = email;
         this.address = address;
         this.pass = pass;
-
-        //获取当前日期
-        date=new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        sdf.format(date);
-
+        this.businessman = false;
     }
+
+    //modify构造
+    public User(Integer id, String name, String tel, String email, String address, String pass) {
+        this.id = id;
+        this.name = name;
+        this.tel = tel;
+        this.email = email;
+        this.address = address;
+        this.pass = pass;
+    }
+
 }
