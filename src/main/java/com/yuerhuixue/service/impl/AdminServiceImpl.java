@@ -12,12 +12,8 @@ import java.util.List;
 @Service
 public class AdminServiceImpl implements AdminService {
 
-    private AdminMapper adminMapper;
-
     @Autowired
-    public void setAdminMapper(AdminMapper adminMapper) {
-        this.adminMapper = adminMapper;
-    }
+    private AdminMapper adminMapper;
 
     @Override
     public Admin adminLogin(String name, String pass) throws SQLException {

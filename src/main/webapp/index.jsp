@@ -16,7 +16,7 @@
     <a href="adminregister.jsp">管理员注册</a><br>
     <a href="userlogin.jsp">用户登录</a><br>
     <a href="userregister.jsp">用户注册</a><br>
-    <a href="instrumentmanage.jsp">乐器管理</a>
+    <a href="instrumentManage.do">乐器管理</a>
 
 </body>
 </html>

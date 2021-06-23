@@ -11,16 +11,12 @@ import java.util.List;
 @Service
 public class InstrumentServiceImpl implements InstrumentService {
 
+    @Autowired
     private InstrumentService instrumentService;
 
-    @Autowired
-    public void setInstrumentService(InstrumentService instrumentService) {
-        this.instrumentService = instrumentService;
-    }
-
     @Override
-    public List<Instrument> findAllInstrument() throws SQLException {
-        return instrumentService.findAllInstrument();
+    public List<Instrument> instrumentList() throws SQLException {
+        return instrumentService.instrumentList();
     }
 
 }

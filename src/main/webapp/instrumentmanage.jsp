@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="com.yuerhuixue.pojo.Instrument" %><%--
   Created by IntelliJ IDEA.
   User: pocoa
   Date: 2021/6/23
@@ -12,7 +13,7 @@
 </head>
 <body>
 
-    <table a href="findAllInstrument.do">
+    <table>
         <thead>
             <tr>
                 <th>乐器名</th>
@@ -22,19 +23,31 @@
                 <th>图片地址</th>
                 <th>品牌</th>
                 <th>描述</th>
-                <th>操作</th>
+                <th>操作1</th>
+                <th>操作2</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+        <%
+            List<Instrument> instruments = (List<Instrument>) session.getAttribute("instruments");
+
+            for (Instrument instrument : instruments) {
+                %>
+                <tr>
+                    <td><%=instrument.getName()%></td>
+                    <td><%=instrument.getInstype()%></td>
+                    <td><%=instrument.getPrice()%></td>
+                    <td><%=instrument.getStock()%></td>
+                    <td><%=instrument.getPicpath()%></td>
+                    <td><%=instrument.getBrand()%></td>
+                    <td><%=instrument.getDescription()%></td>
+                    <td><a href="instrumentModify.do?id=<%=instrument.getId()%>">修改</a></td>
+                    <td><a href="instrumentDelete.do?id=<%=instrument.getId()%>">删除</a></td>
+                </tr>
+                <%
+            }
+        %>
+
         </tbody>
     </table>
 

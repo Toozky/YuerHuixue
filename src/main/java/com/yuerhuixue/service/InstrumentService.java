@@ -8,6 +8,6 @@ import java.util.List;
 public interface InstrumentService {
 
     //查询全部乐器
-    List<Instrument> findAllInstrument() throws SQLException;
+    List<Instrument> instrumentList() throws SQLException;
 
 }
