@@ -16,7 +16,7 @@ public interface UserMapper {
     //注册
     Boolean userRegister(User user) throws SQLException;
 
-    //修改个人信息
+    //修改用户信息
     Boolean userModify(User user) throws SQLException;
 
     //删除用户

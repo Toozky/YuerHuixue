@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -15,5 +17,8 @@ public class Instype {
     private String name;
     private String picpath;
     private String description;
+
+    //乐器
+    private List<Instrument> instruments;
 
 }

@@ -4,8 +4,40 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yuerhuixue.mapper.InstrumentMapper">
 
-    <select id="instrumentList" resultType="list">
+    <select id="instrumentList" resultType="instrument">
         select * from tb_instrument
     </select>
+
+    <select id="findInstrumentById" resultType="instrument">
+        select * from tb_instrument where id=#{id}
+    </select>
+
+    <update id="instrumentModify" parameterType="instrument">
+        update tb_instrument
+        <trim prefix="set" suffixOverrides=",">
+            <if test="name != null">
+                name=#{name},
+            </if>
+            <if test="instype.id != null">
+                instype_id=#{instype.id},
+            </if>
+            <if test="price != null">
+                price=#{price},
+            </if>
+            <if test="stock != null">
+                stock=#{stock},
+            </if>
+            <if test="picpath != null">
+                picpath=#{picpath}
+            </if>
+            <if test="brand != null">
+                brand=#{brand}
+            </if>
+            <if test="description != null">
+                description=#{description}
+            </if>
+        </trim>
+        where id=#{id}
+    </update>
 
 </mapper>

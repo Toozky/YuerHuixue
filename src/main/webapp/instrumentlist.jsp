@@ -41,7 +41,7 @@
                     <td><%=instrument.getPicpath()%></td>
                     <td><%=instrument.getBrand()%></td>
                     <td><%=instrument.getDescription()%></td>
-                    <td><a href="instrumentModify.do?id=<%=instrument.getId()%>">修改</a></td>
+                    <td><a href="instrumentModifyPage.do?id=<%=instrument.getId()%>">修改</a></td>
                     <td><a href="instrumentDelete.do?id=<%=instrument.getId()%>">删除</a></td>
                 </tr>
                 <%

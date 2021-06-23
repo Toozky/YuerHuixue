@@ -1,5 +1,6 @@
 package com.yuerhuixue.service.impl;
 
+import com.yuerhuixue.mapper.InstrumentMapper;
 import com.yuerhuixue.pojo.Instrument;
 import com.yuerhuixue.service.InstrumentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +13,21 @@ import java.util.List;
 public class InstrumentServiceImpl implements InstrumentService {
 
     @Autowired
-    private InstrumentService instrumentService;
+    private InstrumentMapper instrumentMapper;
 
     @Override
     public List<Instrument> instrumentList() throws SQLException {
-        return instrumentService.instrumentList();
+        return instrumentMapper.instrumentList();
+    }
+
+    @Override
+    public Instrument findInstrumentById(Integer id) throws SQLException {
+        return instrumentMapper.findInstrumentById(id);
+    }
+
+    @Override
+    public Boolean instrumentModify(Instrument instrument) throws SQLException {
+        return instrumentMapper.instrumentModify(instrument);
     }
 
 }
