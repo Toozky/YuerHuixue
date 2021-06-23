@@ -16,6 +16,6 @@ public class OrderMajor {
     private Integer id;
     private User user;
     private Double total;
-    private Date date;
+    private Date time;
 
 }

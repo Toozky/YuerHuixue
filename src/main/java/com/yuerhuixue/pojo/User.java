@@ -5,9 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,20 +17,6 @@ public class User {
     private String email;
     private String address;
     private String pass;
-    private Date date;
-    private Boolean isBusinessman= false;
+    private Boolean businessman = false;
 
-    public User(String name, String tel, String email, String address, String pass) {
-        this.name = name;
-        this.tel = tel;
-        this.email = email;
-        this.address = address;
-        this.pass = pass;
-
-        //获取当前日期
-        date=new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        sdf.format(date);
-
-    }
 }

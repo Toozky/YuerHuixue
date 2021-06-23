@@ -32,8 +32,12 @@ public class UserController {
     }
 
     @RequestMapping("userRegister.do")
-    public String  userRegister(String name, String tel, String email, String address, String pass) throws SQLException {
-        User user = new User(name, tel, email, address, pass);
+    public String  userRegister(User user, HttpServletRequest req) throws SQLException {
+        user.setName(req.getParameter("name"));
+        user.setTel(req.getParameter("tel"));
+        user.setEmail(req.getParameter("email"));
+        user.setAddress(req.getParameter("address"));
+        user.setPass(req.getParameter("pass"));
         Boolean b = userService.userRegister(user);
         if (b){
             return "userlogin";
@@ -43,9 +47,9 @@ public class UserController {
     }
 
     @RequestMapping("userModify.do")
-    public String userUpdate(String name, String tel, String email, String address, String pass, HttpSession session) throws SQLException {
-        User user = new User(name, tel, email, address, pass);
-        System.out.println(user);
+    public String userUpdate(User user, HttpSession session) throws SQLException {
+        User userTemp = (User) session.getAttribute("user");
+        user.setId(userTemp.getId());
         Boolean b = userService.userModify(user);
         if (b){
             session.setAttribute("user", user);
@@ -59,8 +63,8 @@ public class UserController {
     public String userDelete(HttpSession session) throws SQLException {
         User user = (User) session.getAttribute("user");
         Boolean b = userService.userDelete(user);
-        session.removeAttribute("user");
         if (b){
+            session.removeAttribute("user");
             return "userlogin";
         }else {
             return "usersuccessful";
