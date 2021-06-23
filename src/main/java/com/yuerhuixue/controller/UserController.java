@@ -32,12 +32,7 @@ public class UserController {
     }
 
     @RequestMapping("userRegister.do")
-    public String  userRegister(User user, HttpServletRequest req) throws SQLException {
-        user.setName(req.getParameter("name"));
-        user.setTel(req.getParameter("tel"));
-        user.setEmail(req.getParameter("email"));
-        user.setAddress(req.getParameter("address"));
-        user.setPass(req.getParameter("pass"));
+    public String  userRegister(User user) throws SQLException {
         Boolean b = userService.userRegister(user);
         if (b){
             return "userlogin";
