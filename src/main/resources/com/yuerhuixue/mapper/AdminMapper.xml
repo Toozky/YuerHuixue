@@ -36,4 +36,44 @@
     <select id="adminFindById" resultType="admin">
         select * from tb_admin where id=#{id}
     </select>
+
+    <select id="adminFindUsers" resultType="user">
+        select * from tb_user
+    </select>
+
+    <select id="adminFindUserById" resultType="user">
+        select * from tb_user where id=#{id}
+    </select>
+
+    <update id="adminUpadteUser">
+        update tb_user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="name != null">
+                name=#{name},
+            </if>
+            <if test="tel != null">
+                tel=#{tel},
+            </if>
+            <if test="email != null">
+                email=#{email},
+            </if>
+            <if test="address != null">
+                address=#{address},
+            </if>
+            <if test="pass != null">
+                pass=#{pass}
+            </if>
+        </trim>
+        where id=#{id}
+    </update>
+
+    <delete id="adminDeleteUserById">
+        delete from tb_user where id=#{id}
+    </delete>
+
+    <insert id="adminInsertUser" parameterType="user">
+        insert into tb_user (name, tel, email, address, pass, businessman)
+        value (#{name}, #{tel}, #{email}, #{address}, #{pass}, #{businessman})
+    </insert>
+
 </mapper>

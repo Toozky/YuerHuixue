@@ -1,7 +1,10 @@
 package com.yuerhuixue.controller;
 
 import com.yuerhuixue.pojo.Admin;
+import com.yuerhuixue.pojo.User;
 import com.yuerhuixue.service.AdminService;
+import com.yuerhuixue.service.UserService;
+import org.apache.ibatis.jdbc.SQL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
+import java.util.List;
 
 @Controller
 public class AdminController {
@@ -22,6 +26,8 @@ public class AdminController {
     public String adminLogin(HttpSession session,String name, String pass) throws SQLException {
         Admin admin = adminService.adminLogin(name, pass);
         if (admin!=null){
+            List<User> users = adminService.adminFindUsers();
+            session.setAttribute("users",users);
             session.setAttribute("admin",admin);
             return "WEB-INF/admin/adminsuccessful";
         }else {
@@ -42,6 +48,9 @@ public class AdminController {
 
     @RequestMapping("adminDelete.do")
     public String adminDelete(Integer id) throws SQLException{
+        if (id==1){
+            return "WEB-INF/admin/adminsuccessful";
+        }
         adminService.adminDelete(id);
         return "WEB-INF/admin/adminsuccessful";
     }
@@ -63,6 +72,44 @@ public class AdminController {
         Boolean b = adminService.adminModify(admin);
         if (b){
             session.setAttribute("admin",admin);
+        }
+        return "WEB-INF/admin/adminsuccessful";
+    }
+
+    @RequestMapping("adminUpdateUserPage.do")
+    public String adminUpdateUserPage(HttpSession session,Integer id) throws SQLException{
+        User user = adminService.adminFindUserById(id);
+        session.setAttribute("user",user);
+        return "adminupdateuser";
+    }
+
+    @RequestMapping("adminUpdateUser.do")
+    public String adminUpdateUser(HttpSession session,User user) throws SQLException{
+        Boolean b = adminService.adminUpadteUser(user);
+        if (b){
+            List<User> users = adminService.adminFindUsers();
+            session.setAttribute("users",users);
+        }
+        return "WEB-INF/admin/adminsuccessful";
+
+    }
+
+    @RequestMapping("adminDeleteUser.do")
+    public String adminDeleteUser(HttpSession session,Integer id) throws SQLException{
+        Boolean b = adminService.adminDeleteUserById(id);
+        if (b){
+            List<User> users = adminService.adminFindUsers();
+            session.setAttribute("users",users);
+        }
+        return "WEB-INF/admin/adminsuccessful";
+    }
+
+    @RequestMapping("adminInsertUser.do")
+    public String adminInsertUser(HttpSession session,User user) throws SQLException {
+        Boolean b = adminService.adminInsertUser(user);
+        if (b){
+            List<User> users = adminService.adminFindUsers();
+            session.setAttribute("users",users);
         }
         return "WEB-INF/admin/adminsuccessful";
     }

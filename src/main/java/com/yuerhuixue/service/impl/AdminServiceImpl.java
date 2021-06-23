@@ -2,6 +2,7 @@ package com.yuerhuixue.service.impl;
 
 import com.yuerhuixue.mapper.AdminMapper;
 import com.yuerhuixue.pojo.Admin;
+import com.yuerhuixue.pojo.User;
 import com.yuerhuixue.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,5 +44,30 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public Admin adminFindById(Integer id) throws SQLException {
         return adminMapper.adminFindById(id);
+    }
+
+    @Override
+    public List<User> adminFindUsers() throws SQLException {
+        return adminMapper.adminFindUsers();
+    }
+
+    @Override
+    public User adminFindUserById(Integer id) throws SQLException {
+        return adminMapper.adminFindUserById(id);
+    }
+
+    @Override
+    public Boolean adminUpadteUser(User user) throws SQLException {
+        return adminMapper.adminUpadteUser(user);
+    }
+
+    @Override
+    public Boolean adminDeleteUserById(Integer id) throws SQLException {
+        return adminMapper.adminDeleteUserById(id);
+    }
+
+    @Override
+    public Boolean adminInsertUser(User user) throws SQLException {
+        return adminMapper.adminInsertUser(user);
     }
 }

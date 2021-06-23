@@ -1,6 +1,7 @@
 package com.yuerhuixue.mapper;
 
 import com.yuerhuixue.pojo.Admin;
+import com.yuerhuixue.pojo.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -28,4 +29,18 @@ public interface AdminMapper {
     //按id查询管理员
     Admin adminFindById(Integer id) throws SQLException;
 
+    //查询所有用户
+    List<User> adminFindUsers() throws SQLException;
+
+    //按id查询用户
+    User adminFindUserById(Integer id) throws SQLException;
+
+    //修改用户信息
+    Boolean adminUpadteUser(User user) throws SQLException;
+
+    //按id删除用户
+    Boolean adminDeleteUserById(Integer id) throws SQLException;
+
+    //添加用户
+    Boolean adminInsertUser(User user) throws SQLException;
 }
