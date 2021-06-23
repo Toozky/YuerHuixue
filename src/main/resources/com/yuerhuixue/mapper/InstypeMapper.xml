@@ -8,4 +8,24 @@
         select * from tb_instype
     </select>
 
+    <select id="findInstypeById" resultType="instype">
+        select * from tb_instype where id=#{id}
+    </select>
+
+    <update id="instypeModify" parameterType="instype">
+        update tb_instype
+        <trim prefix="set" suffixOverrides=",">
+            <if test="name != null and name != ''">
+                name=#{name},
+            </if>
+            <if test="picpath != null and picpath != ''">
+                picpath=#{picpath},
+            </if>
+            <if test="description != null and description != ''">
+                description=#{description}
+            </if>
+        </trim>
+        where id=#{id}
+    </update>
+
 </mapper>

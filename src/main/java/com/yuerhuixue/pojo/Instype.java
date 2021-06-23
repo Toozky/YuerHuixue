@@ -18,7 +18,4 @@ public class Instype {
     private String picpath;
     private String description;
 
-    //乐器
-    private List<Instrument> instruments;
-
 }

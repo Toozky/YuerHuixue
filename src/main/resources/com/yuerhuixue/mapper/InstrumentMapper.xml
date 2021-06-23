@@ -15,25 +15,25 @@
     <update id="instrumentModify" parameterType="instrument">
         update tb_instrument
         <trim prefix="set" suffixOverrides=",">
-            <if test="name != null">
+            <if test="name != null and name != ''">
                 name=#{name},
             </if>
-            <if test="instype != null">
+            <if test="instype != null and instype != ''">
                 instype_id=#{instype.id},
             </if>
-            <if test="price != null">
+            <if test="price != null and price != ''">
                 price=#{price},
             </if>
-            <if test="stock != null">
+            <if test="stock != null and stock != ''">
                 stock=#{stock},
             </if>
-            <if test="picpath != null">
-                picpath=#{picpath}
+            <if test="picpath != null and picpath != ''">
+                picpath=#{picpath},
             </if>
-            <if test="brand != null">
-                brand=#{brand}
+            <if test="brand != null and brand != ''">
+                brand=#{brand},
             </if>
-            <if test="description != null">
+            <if test="description != null and description != ''">
                 description=#{description}
             </if>
         </trim>

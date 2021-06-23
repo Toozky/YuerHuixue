@@ -42,11 +42,11 @@ public class InstrumentController {
     public String instrumentModify(Instrument instrument, HttpSession session) throws SQLException {
         Boolean b = instrumentService.instrumentModify(instrument);
         if (b){
-            session.removeAttribute("instrument");
+            List<Instrument> instrumentsRefresh = instrumentService.instrumentList();
+            session.setAttribute("instruments", instrumentsRefresh);
             return "instrumentlist";
         }else {
             return "instrumentmodify";
         }
-
     }
 }

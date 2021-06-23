@@ -19,4 +19,15 @@ public class InstypeServiceImpl implements InstypeService {
     public List<Instype> instypeList() throws SQLException {
         return instypeMapper.instypeList();
     }
+
+    @Override
+    public Instype findInstypeById(Integer id) throws SQLException {
+        return instypeMapper.findInstypeById(id);
+    }
+
+    @Override
+    public Boolean instypeModify(Instype instype) throws SQLException {
+        return instypeMapper.instypeModify(instype);
+    }
+
 }

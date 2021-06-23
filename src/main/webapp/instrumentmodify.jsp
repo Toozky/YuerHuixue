@@ -8,11 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>修改乐器信息</title>
 </head>
 <body>
 
     <form action="instrumentModify.do" method="post">
+        <input type="text" name="id" hidden="hidden" value="${instrument.id}">
         乐器名：<input type="text" name="name" value="${instrument.name}" placeholder="输入乐器名（必填）"><br>
         类型名：<input type="text" name="instype" value="${instrument.instype.name}" placeholder="输入类型名"><br>
         价　格：<input type="text" name="price" value="${instrument.price}" placeholder="输入价格（必填）"><br>

@@ -16,19 +16,19 @@
     <update id="userModify" parameterType="user">
         update tb_user
         <trim prefix="set" suffixOverrides=",">
-            <if test="name != null">
+            <if test="name != null and name != ''">
                 name=#{name},
             </if>
-            <if test="tel != null">
+            <if test="tel != null and tel != ''">
                 tel=#{tel},
             </if>
-            <if test="email != null">
+            <if test="email != null and email != ''">
                 email=#{email},
             </if>
-            <if test="address != null">
+            <if test="address != null and address != ''">
                 address=#{address},
             </if>
-            <if test="pass != null">
+            <if test="pass != null and pass != ''">
                 pass=#{pass}
             </if>
         </trim>
