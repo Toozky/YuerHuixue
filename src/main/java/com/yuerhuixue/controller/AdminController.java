@@ -32,15 +32,27 @@ public class AdminController {
         }
     }
 
+    @RequestMapping("adminRegisterPage.do")
+    public String adminRegisterPage(HttpSession session) throws SQLException{
+        /*Admin admin=(Admin)session.getAttribute("admin");
+        Admin findAdmin = adminService.adminFindById(admin.getId());
+        if (findAdmin.toString().equals(admin.toString())){
+            return "WEB-INF/admin/adminregister";
+        }else {
+            return "WEB-INF/admin/adminsuccessful";
+        }*/
+
+        return "WEB-INF/admin/adminregister";
+    }
+
     @RequestMapping("adminRegister.do")
     public String adminRegister(String name, String pass) throws SQLException {
         Admin admin = new Admin(name, pass);
         Boolean b = adminService.adminRegister(admin);
         if (b){
-            return "adminlogin";
-        }else {
-            return "adminlogin";
+
         }
+        return "adminlogin";
     }
 
     @RequestMapping("adminDelete.do")
@@ -49,7 +61,7 @@ public class AdminController {
             return "WEB-INF/admin/adminsuccessful";
         }
         adminService.adminDelete(id);
-        return "WEB-INF/admin/adminsuccessful";
+        return "adminlogin";
     }
 
     @RequestMapping("adminModifyPage.do")
