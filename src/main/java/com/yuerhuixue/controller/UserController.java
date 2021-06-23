@@ -2,23 +2,21 @@ package com.yuerhuixue.controller;
 
 import com.yuerhuixue.pojo.User;
 import com.yuerhuixue.service.UserService;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.jdbc.SQL;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 
 @Controller
 public class UserController {
 
-    @Autowired
-    @Qualifier("userServiceImpl")
-    private UserService userService;
+    private final UserService userService;
+
+    public UserController(@Qualifier("userServiceImpl") UserService userService) {
+        this.userService = userService;
+    }
 
     @RequestMapping("userLogin.do")
     public String userLogin(String name, String pass, HttpSession session) throws SQLException {

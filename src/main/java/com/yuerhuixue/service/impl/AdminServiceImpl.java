@@ -6,16 +6,15 @@ import com.yuerhuixue.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.nio.file.AccessDeniedException;
 import java.sql.SQLException;
 import java.util.List;
 
 @Service
 public class AdminServiceImpl implements AdminService {
 
-    @Autowired
     private AdminMapper adminMapper;
 
+    @Autowired
     public void setAdminMapper(AdminMapper adminMapper) {
         this.adminMapper = adminMapper;
     }

@@ -2,14 +2,11 @@ package com.yuerhuixue.controller;
 
 import com.yuerhuixue.pojo.Admin;
 import com.yuerhuixue.service.AdminService;
-import org.apache.ibatis.jdbc.SQL;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.List;
@@ -17,9 +14,11 @@ import java.util.List;
 @Controller
 public class AdminController {
 
-    @Autowired
-    @Qualifier("adminServiceImpl")
-    private AdminService adminService;
+    private final AdminService adminService;
+
+    public AdminController(@Qualifier("adminServiceImpl") AdminService adminService) {
+        this.adminService = adminService;
+    }
 
     @RequestMapping("adminLogin.do")
     public String adminLogin(HttpSession session,String name, String pass) throws SQLException {
@@ -37,7 +36,7 @@ public class AdminController {
     @RequestMapping("adminRegister.do")
     public String adminRegister(String name, String pass) throws SQLException {
         Admin admin = new Admin(name, pass);
-        Boolean b = adminService.adminRegister(admin);
+        boolean b = adminService.adminRegister(admin);
         if (b){
             return "adminlogin";
         }else {
@@ -75,7 +74,7 @@ public class AdminController {
     }
 
     @PatchMapping("adminRegisterPage")
-    public String adminRegisterPage() throws SQLException{
+    public String adminRegisterPage() {
 
         return "WEB-INF/admin/adminsuccessful";
     }

@@ -11,9 +11,9 @@ import java.sql.SQLException;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
     private UserMapper userMapper;
 
+    @Autowired
     public void setUserMapper(UserMapper userMapper) {
         this.userMapper = userMapper;
     }
@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean userRegister(User user) throws SQLException {
+    public Boolean userRegister(User user) throws SQLException {
         return userMapper.userRegister(user);
     }
 

@@ -12,8 +12,8 @@ import lombok.ToString;
 public class Instrument {
 
     private Integer id;
-    private Instype instype;
     private String name;
+    private Instype instype;
     private Double price;
     private Integer stock;
     private String picpath;
