@@ -17,6 +17,7 @@
         密　码：<input type="password" name="pass"/><br>
         <input type="submit" value="登录">
     </form>
+    <a href="userregister.jsp">用户注册</a><br>
 
 </body>
 </html>

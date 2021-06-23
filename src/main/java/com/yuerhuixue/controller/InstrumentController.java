@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.List;
@@ -18,10 +19,35 @@ public class InstrumentController {
     @Qualifier("instrumentServiceImpl")
     private InstrumentService instrumentService;
 
-    @RequestMapping("instrumentManage.do")
-    public String findAllInstrument(HttpSession session) throws SQLException{
+    @RequestMapping("instrumentList.do")
+    public String instrumentList(HttpSession session) throws SQLException{
         List<Instrument> instruments = instrumentService.instrumentList();
         session.setAttribute("instruments", instruments);
-        return "instrumentmanage";
+        return "instrumentlist";
+    }
+
+    @RequestMapping("instrumentModifyPage.do")
+    public String instrumentModifyPage(HttpServletRequest req, HttpSession session) throws SQLException {
+        String id = req.getParameter("id");
+        Instrument instrumentById = instrumentService.findInstrumentById(Integer.parseInt(id));
+        if (instrumentById != null){
+            session.setAttribute("instrument", instrumentById);
+            return "instrumentmodify";
+        }else {
+            return "instrumentlist";
+        }
+
+    }
+
+    @RequestMapping("instrumentModify.do")
+    public String instrumentModify(Instrument instrument, HttpSession session) throws SQLException {
+        instrument = (Instrument) session.getAttribute("instrument");
+        Boolean b = instrumentService.instrumentModify(instrument);
+        if (b){
+            return "instrumentlist";
+        }else {
+            return "instrumentmodify";
+        }
+
     }
 }
