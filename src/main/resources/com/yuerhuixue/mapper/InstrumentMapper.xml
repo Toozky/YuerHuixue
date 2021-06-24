@@ -9,38 +9,18 @@
     </select>
 
     <select id="findInstrumentById" resultType="instrument">
-        select * from tb_instrument where id=#{id}
+        select * from tb_instrument
+        where id=#{id}
     </select>
 
     <update id="instrumentModify" parameterType="instrument">
         update tb_instrument
-        <trim prefix="set" suffixOverrides=",">
-            <if test="name != null and name != ''">
-                name=#{name},
-            </if>
-            <if test="instype_id != null">
-                instype_id=#{instype.id},
-            </if>
-            <if test="price != null">
-                price=#{price},
-            </if>
-            <if test="stock != null">
-                stock=#{stock},
-            </if>
-            <if test="picpath != null and picpath != ''">
-                picpath=#{picpath},
-            </if>
-            <if test="brand != null and brand != ''">
-                brand=#{brand},
-            </if>
-            <if test="description != null and description != ''">
-                description=#{description}
-            </if>
-        </trim>
+        set name=#{name}, instype_id=#{instype.id}, price=#{price}, stock=#{stock}, picpath=#{picpath}, brand=#{brand}, description=#{description}
         where id=#{id}
     </update>
 
     <delete id="instrumentDelete">
-        delete from tb_instrument where id=#{id}
+        delete from tb_instrument
+        where id=#{id}
     </delete>
 </mapper>

@@ -15,28 +15,13 @@
 
     <update id="userModify" parameterType="user">
         update tb_user
-        <trim prefix="set" suffixOverrides=",">
-            <if test="name != null and name != ''">
-                name=#{name},
-            </if>
-            <if test="tel != null and tel != ''">
-                tel=#{tel},
-            </if>
-            <if test="email != null and email != ''">
-                email=#{email},
-            </if>
-            <if test="address != null and address != ''">
-                address=#{address},
-            </if>
-            <if test="pass != null and pass != ''">
-                pass=#{pass}
-            </if>
-        </trim>
+        set name=#{name}, tel=#{tel}, email=#{email}, address=#{address}, pass=#{pass}
         where id=#{id}
     </update>
 
     <delete id="userDelete" parameterType="user">
-        delete from tb_user where id=#{id}
+        delete from tb_user
+        where id=#{id}
     </delete>
 
 

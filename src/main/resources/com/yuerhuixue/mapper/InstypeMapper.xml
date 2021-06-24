@@ -9,31 +9,24 @@
     </select>
 
     <select id="findInstypeById" resultType="instype">
-        select * from tb_instype where id=#{id}
+        select * from tb_instype
+        where id=#{id}
     </select>
 
     <update id="instypeModify" parameterType="instype">
         update tb_instype
-        <trim prefix="set" suffixOverrides=",">
-            <if test="name != null and name != ''">
-                name=#{name},
-            </if>
-            <if test="picpath != null and picpath != ''">
-                picpath=#{picpath},
-            </if>
-            <if test="description != null and description != ''">
-                description=#{description}
-            </if>
-        </trim>
+        set name=#{name}, picpath=#{picpath}, description=#{description}
         where id=#{id}
     </update>
 
     <delete id="instypeDelete">
-        delete from tb_instype where id=#{id}
+        delete from tb_instype
+        where id=#{id}
     </delete>
 
     <insert id="instypeInsert" parameterType="instype">
-        insert into tb_instype (name, picpath, description) value (#{name}, #{picpath}, #{description})
+        insert into tb_instype (name, picpath, description)
+        value (#{name},#{picpath},#{description})
     </insert>
 
 </mapper>

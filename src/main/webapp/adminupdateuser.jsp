@@ -24,5 +24,6 @@
         <input name="businessman" type="radio" value="false" ${user.businessman?"":"checked='checked'"}/>否<br>
         <input type="submit" value="更新"><br>
     </form>
+
 </body>
 </html>
