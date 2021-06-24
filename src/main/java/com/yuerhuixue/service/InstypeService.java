@@ -16,4 +16,10 @@ public interface InstypeService {
     //修改乐器类型信息
     Boolean instypeModify(Instype instype) throws SQLException;
 
+    //删除乐器类型
+    Boolean instypeDelete(Integer id) throws SQLException;
+
+    //新增乐器类型
+    Boolean instypeInsert(Instype instype) throws SQLException;
+
 }

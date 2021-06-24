@@ -21,5 +21,7 @@
         <input type="submit" value="注册"><br>
     </form>
 
+    <a href="userlogin.jsp">取消注册</a><br>
+
 </body>
 </html>

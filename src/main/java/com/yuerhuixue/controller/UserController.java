@@ -30,12 +30,8 @@ public class UserController {
 
     @RequestMapping("userRegister.do")
     public String  userRegister(User user) throws SQLException {
-        Boolean b = userService.userRegister(user);
-        if (b){
-            return "userlogin";
-        }else {
-            return "userlogin";
-        }
+        userService.userRegister(user);
+        return "userlogin";
     }
 
     @RequestMapping("userModify.do")
@@ -66,4 +62,5 @@ public class UserController {
         session.removeAttribute("user");
         return "userlogin";
     }
+
 }

@@ -1,6 +1,7 @@
 package com.yuerhuixue.controller;
 
 import com.yuerhuixue.pojo.Instype;
+import com.yuerhuixue.pojo.Instype;
 import com.yuerhuixue.service.InstypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -27,9 +28,8 @@ public class InstypeController {
     }
     
     @RequestMapping("instypeModifyPage.do")
-    public String instypeModifyPage(HttpServletRequest req, HttpSession session) throws SQLException {
-        String id = req.getParameter("id");
-        Instype instypeById = instypeService.findInstypeById(Integer.parseInt(id));
+    public String instypeModifyPage(Integer id, HttpSession session) throws SQLException {
+        Instype instypeById = instypeService.findInstypeById(id);
         if (instypeById != null){
             session.setAttribute("instype", instypeById);
             return "instypemodify";
@@ -42,11 +42,28 @@ public class InstypeController {
     public String instypeModify(Instype instype, HttpSession session) throws SQLException {
         Boolean b = instypeService.instypeModify(instype);
         if (b){
-            List<Instype> instypeRefresh = instypeService.instypeList();
-            session.setAttribute("instypes", instypeRefresh);
+            List<Instype> instypes = instypeService.instypeList();
+            session.setAttribute("instypes", instypes);
             return "instypelist";
         }else {
             return "instypemodify";
         }
     }
+
+    @RequestMapping("instypeDelete.do")
+    public String instypeDelete(Integer id, HttpSession session) throws SQLException {
+        instypeService.instypeDelete(id);
+        List<Instype> instypes = instypeService.instypeList();
+        session.setAttribute("instypes", instypes);
+        return "instypelist";
+    }
+
+    @RequestMapping("instypeInsert.do")
+    public String instypeInsert(Instype instype, HttpSession session) throws SQLException{
+        instypeService.instypeInsert(instype);
+        List<Instype> instypes = instypeService.instypeList();
+        session.setAttribute("instypes", instypes);
+        return "instypelist";
+    }
+
 }

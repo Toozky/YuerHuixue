@@ -1,5 +1,6 @@
 package com.yuerhuixue.mapper;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.yuerhuixue.pojo.Instrument;
 import com.yuerhuixue.pojo.Instype;
 import org.springframework.stereotype.Repository;
@@ -18,5 +19,11 @@ public interface InstypeMapper {
 
     //修改乐器类型信息
     Boolean instypeModify(Instype instype) throws SQLException;
+
+    //删除乐器类型
+    Boolean instypeDelete(Integer id) throws SQLException;
+
+    //新增乐器类型
+    Boolean instypeInsert(Instype instype) throws SQLException;
 
 }

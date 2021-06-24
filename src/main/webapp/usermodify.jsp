@@ -22,5 +22,7 @@
         <input type="submit" value="更新"><br>
     </form>
 
+    <a href="userlogin.jsp">取消修改</a><br>
+
 </body>
 </html>

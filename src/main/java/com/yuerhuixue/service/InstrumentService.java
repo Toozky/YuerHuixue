@@ -16,4 +16,7 @@ public interface InstrumentService {
     //修改乐器信息
     Boolean instrumentModify(Instrument instrument) throws SQLException;
 
+    //删除乐器
+    Boolean instrumentDelete(Integer id) throws SQLException;
+
 }

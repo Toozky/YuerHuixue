@@ -30,4 +30,14 @@ public class InstypeServiceImpl implements InstypeService {
         return instypeMapper.instypeModify(instype);
     }
 
+    @Override
+    public Boolean instypeDelete(Integer id) throws SQLException {
+        return instypeMapper.instypeDelete(id);
+    }
+
+    @Override
+    public Boolean instypeInsert(Instype instype) throws SQLException {
+        return instypeMapper.instypeInsert(instype);
+    }
+
 }

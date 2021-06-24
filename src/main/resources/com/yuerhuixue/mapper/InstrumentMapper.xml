@@ -18,13 +18,13 @@
             <if test="name != null and name != ''">
                 name=#{name},
             </if>
-            <if test="instype != null and instype != ''">
+            <if test="instype != null">
                 instype_id=#{instype.id},
             </if>
-            <if test="price != null and price != ''">
+            <if test="price != null">
                 price=#{price},
             </if>
-            <if test="stock != null and stock != ''">
+            <if test="stock != null">
                 stock=#{stock},
             </if>
             <if test="picpath != null and picpath != ''">
@@ -40,4 +40,7 @@
         where id=#{id}
     </update>
 
+    <delete id="instrumentDelete">
+        delete from tb_instrument where id=#{id}
+    </delete>
 </mapper>

@@ -30,4 +30,9 @@ public class InstrumentServiceImpl implements InstrumentService {
         return instrumentMapper.instrumentModify(instrument);
     }
 
+    @Override
+    public Boolean instrumentDelete(Integer id) throws SQLException {
+        return instrumentMapper.instrumentDelete(id);
+    }
+
 }

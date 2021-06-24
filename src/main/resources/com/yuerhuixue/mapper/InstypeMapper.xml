@@ -28,4 +28,12 @@
         where id=#{id}
     </update>
 
+    <delete id="instypeDelete">
+        delete from tb_instype where id=#{id}
+    </delete>
+
+    <insert id="instypeInsert" parameterType="instype">
+        insert into tb_instype (name, picpath, description) value (#{name}, #{picpath}, #{description})
+    </insert>
+
 </mapper>

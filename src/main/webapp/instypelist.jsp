@@ -43,5 +43,9 @@
         </tbody>
     </table>
 
+    <a href="instypeinsert.jsp">添加乐器类型</a><br>
+    <a href="index.jsp">返回首页</a><br>
+
+
 </body>
 </html>

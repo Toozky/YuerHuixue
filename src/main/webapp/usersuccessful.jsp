@@ -28,5 +28,7 @@
         }
     %>
 
+    <a href="index.jsp">返回首页</a><br>
+
 </body>
 </html>
