@@ -12,8 +12,8 @@
 </head>
 <body>
 <form action="orderMajorInsert.do" method="post">
-    用户ID：<input type="text" name="id" placeholder="输入用户ID（必填）"><br>
-    总价：<input type="text" name="total" placeholder="输入总价（必填）"><br>
+    用户　ID：<input type="text" name="user.id" placeholder="输入用户ID（必填）"><br>
+    总　　价：<input type="text" name="total" placeholder="输入总价（必填）"><br>
     订单状态：<input type="text" name="state" placeholder="输入订单状态"><br>
     <input type="submit" value="添加"><br>
 </form>

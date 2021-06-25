@@ -29,8 +29,11 @@
     </select>
 
     <insert id="orderMajorInsert" parameterType="orderMajor">
-        insert into tb_order_major (user_id,total,time,state)
-        value (#{user.id},#{total},null,#{state})
+        insert into tb_order_major (user_id,total,state)
+        value (#{user.id},#{total},#{state})
     </insert>
 
+    <delete id="orderMajorDelete">
+        delete from tb_order_major where id=#{id}
+    </delete>
 </mapper>

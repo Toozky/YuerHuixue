@@ -22,7 +22,7 @@
         <td>订单状态</td>
         <td>
             操作　
-            <a href="admininsertuser.jsp">新建</a>
+            <a href="ordermajorinsert.jsp">添加订单</a>
         </td>
     </tr>
     <%
@@ -37,12 +37,14 @@
         <td><%=orderMajor.getState()%></td>
         <td>
             <a href="orderMajorInsert.do?id=<%=orderMajor.getId()%>">查看明细</a> 　
-            <a href="a.do?id=<%=orderMajor.getId()%>">删除订单</a>
+            <a href="orderMajorDelete.do?id=<%=orderMajor.getId()%>">删除订单</a>
         </td>
     </tr>
     <%
         }
     %>
 </table>
+
+<br><a href="ordermajorinsert.jsp">添加订单</a><br>
 </body>
 </html>

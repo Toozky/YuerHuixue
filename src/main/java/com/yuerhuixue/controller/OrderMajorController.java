@@ -34,7 +34,18 @@ public class OrderMajorController {
 
     @RequestMapping("orderMajorInsert.do")
     public String orderMajorInsert(HttpSession session,OrderMajor orderMajor) throws SQLException{
+        orderMajor.setState(orderMajor.getState()==null?0:orderMajor.getState());
         Boolean b = orderMajorService.orderMajorInsert(orderMajor);
+        if (b){
+            List<OrderMajor> orderMajors = orderMajorService.orderMajorList();
+            session.setAttribute("orderMajors",orderMajors);
+        }
+        return "ordermajorlist";
+    }
+
+    @RequestMapping("orderMajorDelete.do")
+    public String orderMajorDelete(HttpSession session,Integer id) throws SQLException{
+        Boolean b = orderMajorService.orderMajorDelete(id);
         if (b){
             List<OrderMajor> orderMajors = orderMajorService.orderMajorList();
             session.setAttribute("orderMajors",orderMajors);

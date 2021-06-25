@@ -28,4 +28,9 @@ public class OrderMajorServiceImpl implements OrderMajorService {
     public Boolean orderMajorInsert(OrderMajor orderMajor) throws SQLException {
         return orderMajorMapper.orderMajorInsert(orderMajor);
     }
+
+    @Override
+    public Boolean orderMajorDelete(Integer id) throws SQLException {
+        return orderMajorMapper.orderMajorDelete(id);
+    }
 }

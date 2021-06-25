@@ -15,4 +15,7 @@ public interface OrderMajorService {
 
     //添加订单
     Boolean orderMajorInsert(OrderMajor orderMajor)throws SQLException;
+
+    //删除订单
+    Boolean orderMajorDelete(Integer id) throws SQLException;
 }
