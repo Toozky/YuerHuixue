@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuerhuixue.mapper.OrderMajorMapper">
+
+    <resultMap id="orderMajorToUser" type="orderMajor">
+        <id property="id" column="id"/>
+        <result property="total" column="total"/>
+        <result property="time" column="time"/>
+        <result property="state" column="state"/>
+        <association property="user" javaType="user">
+            <id property="id" column="user_id"/>
+            <result property="name" column="name"/>
+            <result property="tel" column="tel"/>
+            <result property="email" column="email"/>
+            <result property="address" column="address"/>
+            <result property="pass" column="pass"/>
+            <result property="businessman" column="businessman"/>
+        </association>
+    </resultMap>
+
+    <select id="orderMajorList" resultMap="orderMajorToUser">
+        select * from tb_order_major
+    </select>
+
+    <select id="orderMajorFindById" resultMap="orderMajorToUser">
+        select * from tb_order_major where id=#{id}
+    </select>
+
+    <insert id="orderMajorInsert" parameterType="orderMajor">
+        insert into tb_order_major (user_id,total,time,state)
+        value (#{user.id},#{total},null,#{state})
+    </insert>
+
+</mapper>
