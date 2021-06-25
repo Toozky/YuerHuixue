@@ -25,7 +25,7 @@
     </delete>
 
     <insert id="instypeInsert" parameterType="instype">
-        insert into tb_instype (name, picpath, description)
+        insert ignore into tb_instype (name, picpath, description)
         value (#{name},#{picpath},#{description})
     </insert>
 
