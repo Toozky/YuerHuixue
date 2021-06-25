@@ -30,8 +30,12 @@ public class UserController {
 
     @RequestMapping("userRegister.do")
     public String  userRegister(User user) throws SQLException {
-        userService.userRegister(user);
-        return "userlogin";
+        Boolean b = userService.userRegister(user);
+        if (b){
+            return "userregister";
+        }else {
+            return "userlogin";
+        }
     }
 
     @RequestMapping("userModify.do")

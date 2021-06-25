@@ -5,11 +5,14 @@
 <mapper namespace="com.yuerhuixue.mapper.UserMapper">
 
     <select id="userLogin" resultType="user">
-        select * from tb_user where name=#{name} and pass=#{pass}
+        select *
+        from tb_user
+        where name=#{name} and pass=#{pass}
     </select>
 
     <insert id="userRegister" parameterType="user">
-        insert ignore into tb_user (name, tel, email, address, pass, businessman)
+        insert ignore
+        into tb_user (name, tel, email, address, pass, businessman)
         value (#{name}, #{tel}, #{email}, #{address}, #{pass}, #{businessman})
     </insert>
 
@@ -20,7 +23,8 @@
     </update>
 
     <delete id="userDelete" parameterType="user">
-        delete from tb_user
+        delete
+        from tb_user
         where id=#{id}
     </delete>
 

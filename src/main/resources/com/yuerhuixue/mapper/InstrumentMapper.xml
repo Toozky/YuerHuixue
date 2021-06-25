@@ -20,7 +20,7 @@
             <result property="description" column="bdescription"></result>
         </association>
     </resultMap>
-    
+
     <select id="instrumentList" resultMap="instrumentToInstype">
         select tb_instrument.id aid, tb_instrument.name aname, tb_instype.id bid, tb_instype.name bname,
          tb_instype.picpath bpicpath, tb_instype.description bdescription, tb_instrument.price aprice,
@@ -36,7 +36,7 @@
          tb_instrument.stock astock, tb_instrument.picpath apicpath, tb_instrument.brand abrand,
          tb_instrument.description adescription
         from tb_instrument, tb_instype
-        where tb_instrument.id = tb_instype.instype_id and tb_instrument.id=#{id}
+        where tb_instrument.instype_id = tb_instype.id and tb_instrument.id=#{id}
     </select>
 
     <update id="instrumentModify" parameterType="instrument">
@@ -46,8 +46,15 @@
         where id=#{id}
     </update>
 
-    <delete id="instrumentDelete">
+    <delete id="instrumentDelete" parameterType="integer">
         delete from tb_instrument
         where id=#{id}
     </delete>
+
+    <insert id="instrumentInsert" parameterType="instrument">
+        insert ignore
+        into tb_instrument (name, instype_id, price, stock, picpath, brand, description)
+        values (#{name}, #{instype.id},  #{price},  #{stock},  #{picpath},  #{brand},  #{description});
+    </insert>
+
 </mapper>

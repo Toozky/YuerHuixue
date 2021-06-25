@@ -13,7 +13,7 @@
 <body>
 
     <form action="instypeInsert.do" method="post">
-        乐器类型：<input type="text" name="name" placeholder="输入乐器名（必填）"><br>
+        乐器类型：<input type="text" name="name" placeholder="输入乐器类型名（必填）"><br>
         图片地址：<input type="text" name="picpath" placeholder="输入图片地址"><br>
         描　　述：<input type="text" name="description" placeholder="输入描述"><br>
         <input type="submit" value="添加"><br>

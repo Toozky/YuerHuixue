@@ -5,11 +5,13 @@
 <mapper namespace="com.yuerhuixue.mapper.InstypeMapper">
 
     <select id="instypeList" resultType="instype">
-        select * from tb_instype
+        select *
+        from tb_instype
     </select>
 
     <select id="findInstypeById" resultType="instype">
-        select * from tb_instype
+        select *
+        from tb_instype
         where id=#{id}
     </select>
 
@@ -19,18 +21,21 @@
         where id=#{id}
     </update>
 
-    <delete id="instypeDelete">
+    <delete id="instypeDelete" parameterType="integer">
         delete from tb_instype
         where id=#{id}
     </delete>
 
     <insert id="instypeInsert" parameterType="instype">
-        insert ignore into tb_instype (name, picpath, description)
+        insert ignore
+        into tb_instype (name, picpath, description)
         value (#{name},#{picpath},#{description})
     </insert>
 
     <select id="findIdByName" resultType="integer">
-        select id from tb_instype where name=#{name}
+        select id
+        from tb_instype
+        where name=#{name}
     </select>
 
 </mapper>
