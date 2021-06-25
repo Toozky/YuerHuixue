@@ -58,10 +58,14 @@ public class InstypeController {
 
     @RequestMapping("instypeInsert.do")
     public String instypeInsert(Instype instype, HttpSession session) throws SQLException{
-        instypeService.instypeInsert(instype);
-        List<Instype> instypes = instypeService.instypeList();
-        session.setAttribute("instypes", instypes);
-        return "instypelist";
+        Boolean b = instypeService.instypeInsert(instype);
+        if (b){
+            List<Instype> instypes = instypeService.instypeList();
+            session.setAttribute("instypes", instypes);
+            return "instypelist";
+        }else {
+            return "instypeinsert";
+        }
     }
 
 }

@@ -43,4 +43,12 @@ public class InstrumentServiceImpl implements InstrumentService {
         return instrumentMapper.instrumentDelete(id);
     }
 
+    @Override
+    public Boolean instrumentInsert(Instrument instrument) throws SQLException {
+        Integer idByName = instypeMapper.findIdByName(instrument.getInstype().getName());
+        Instype instypeById = instypeMapper.findInstypeById(idByName);
+        instrument.setInstype(instypeById);
+        return instrumentMapper.instrumentInsert(instrument);
+    }
+
 }

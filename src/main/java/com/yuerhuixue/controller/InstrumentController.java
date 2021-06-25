@@ -42,11 +42,6 @@ public class InstrumentController {
         if (b){
             List<Instrument> instruments = instrumentService.instrumentList();
             session.setAttribute("instruments", instruments);
-
-            for (Instrument instrument1 : instruments) {
-                System.out.println(instrument1);
-            }
-
             return "instrumentlist";
         }else {
             return "instrumentmodify";
@@ -59,6 +54,18 @@ public class InstrumentController {
         List<Instrument> instruments = instrumentService.instrumentList();
         session.setAttribute("instruments", instruments);
         return "instrumentlist";
+    }
+
+    @RequestMapping("instrumentInsert.do")
+    public String instrumentInsert(Instrument instrument, HttpSession session) throws SQLException {
+        Boolean b = instrumentService.instrumentInsert(instrument);
+        if (b){
+            List<Instrument> instruments = instrumentService.instrumentList();
+            session.setAttribute("instruments", instruments);
+            return "instrumentlist";
+        }else {
+            return "instrumentinsert";
+        }
     }
 
 }
