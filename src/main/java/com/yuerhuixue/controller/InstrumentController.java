@@ -42,6 +42,11 @@ public class InstrumentController {
         if (b){
             List<Instrument> instruments = instrumentService.instrumentList();
             session.setAttribute("instruments", instruments);
+
+            for (Instrument instrument1 : instruments) {
+                System.out.println(instrument1);
+            }
+
             return "instrumentlist";
         }else {
             return "instrumentmodify";

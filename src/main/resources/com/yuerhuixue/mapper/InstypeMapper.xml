@@ -29,4 +29,8 @@
         value (#{name},#{picpath},#{description})
     </insert>
 
+    <select id="findIdByName" resultType="integer">
+        select id from tb_instype where name=#{name}
+    </select>
+
 </mapper>

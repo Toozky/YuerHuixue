@@ -26,4 +26,7 @@ public interface InstypeMapper {
     //新增乐器类型
     Boolean instypeInsert(Instype instype) throws SQLException;
 
+    //根据类型名查id
+    Integer findIdByName(String name) throws SQLException;
+
 }

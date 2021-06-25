@@ -35,7 +35,7 @@
                 %>
                 <tr>
                     <td><%=instrument.getName()%></td>
-                    <td><%=instrument.getInstype()%></td>
+                    <td><%=instrument.getInstype().getName()%></td>
                     <td><%=instrument.getPrice()%></td>
                     <td><%=instrument.getStock()%></td>
                     <td><%=instrument.getPicpath()%></td>
