@@ -26,7 +26,7 @@ public class AdminController {
             List<User> users = adminService.adminFindUsers();
             session.setAttribute("users",users);
             session.setAttribute("admin",admin);
-            return "WEB-INF/admin/adminsuccessful";
+            return "adminsuccessful";
         }else {
             return "adminlogin";
         }
@@ -42,7 +42,7 @@ public class AdminController {
             return "WEB-INF/admin/adminsuccessful";
         }*/
 
-        return "WEB-INF/admin/adminregister";
+        return "adminregister";
     }
 
     @RequestMapping("adminRegister.do")
@@ -58,7 +58,7 @@ public class AdminController {
     @RequestMapping("adminDelete.do")
     public String adminDelete(Integer id) throws SQLException{
         if (id==1){
-            return "WEB-INF/admin/adminsuccessful";
+            return "adminsuccessful";
         }
         adminService.adminDelete(id);
         return "adminlogin";
@@ -70,9 +70,9 @@ public class AdminController {
         Admin findAdmin = adminService.adminFindById(admin.getId());
         if (findAdmin.toString().equals(admin.toString())){
             session.setAttribute("admin",admin);
-            return "WEB-INF/admin/adminmodify";
+            return "adminmodify";
         }else {
-            return "WEB-INF/admin/adminsuccessful";
+            return "adminsuccessful";
         }
     }
 
@@ -82,7 +82,7 @@ public class AdminController {
         if (b){
             session.setAttribute("admin",admin);
         }
-        return "WEB-INF/admin/adminsuccessful";
+        return "adminsuccessful";
     }
 
     @RequestMapping("adminUpdateUserPage.do")
@@ -99,7 +99,7 @@ public class AdminController {
             List<User> users = adminService.adminFindUsers();
             session.setAttribute("users",users);
         }
-        return "WEB-INF/admin/adminsuccessful";
+        return "adminsuccessful";
 
     }
 
@@ -110,7 +110,7 @@ public class AdminController {
             List<User> users = adminService.adminFindUsers();
             session.setAttribute("users",users);
         }
-        return "WEB-INF/admin/adminsuccessful";
+        return "adminsuccessful";
     }
 
     @RequestMapping("adminInsertUser.do")
@@ -120,7 +120,7 @@ public class AdminController {
             List<User> users = adminService.adminFindUsers();
             session.setAttribute("users",users);
         }
-        return "WEB-INF/admin/adminsuccessful";
+        return "adminsuccessful";
     }
 
 }

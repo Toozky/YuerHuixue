@@ -20,6 +20,6 @@
         密　码：<input type="password" name="pass" placeholder="输入密码"><br>
         <input type="submit" value="注册"><br>
     </form>
-
+    <a href="adminsuccessful.jsp">取消添加</a><br>
 </body>
 </html>
