@@ -18,4 +18,10 @@ public interface OrderMajorService {
 
     //删除订单
     Boolean orderMajorDelete(Integer id) throws SQLException;
+
+    //按用户id查订单
+    List<OrderMajor> orderMajorListByUserId(Integer id)throws SQLException;
+
+    //查询订单中所有用户的id
+    List<Integer> orderMajorUserIdList()throws SQLException;
 }

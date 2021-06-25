@@ -1,12 +1,12 @@
-<%@ page import="java.util.List" %>
-<%@ page import="com.yuerhuixue.pojo.OrderMajor" %><%--
+<%@ page import="com.yuerhuixue.pojo.OrderMajor" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: 张宇
   Date: 2021/6/25
-  Time: 14:11
+  Time: 16:15
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Title</title>
@@ -16,7 +16,6 @@
     List<Integer> userIdList=(List<Integer>)session.getAttribute("userIdList");
     List<OrderMajor> orderMajors=(List<OrderMajor>)session.getAttribute("orderMajors");
 %>
-
 <form action="orderMajorListByUserId.do" method="post">
     用户ID:
     <select name="id">
@@ -32,7 +31,7 @@
     <input type="submit" value="搜索">
 </form><br>
 订单信息表<br>
-<a href="ordermajorlistbyuserid.jsp">按用户ID查询订单</a><br>
+<hr>
 <table border="1px" cellspacing="0" cellpadding="5px">
     <tr>
         <td>订单ID</td>
@@ -63,7 +62,5 @@
         }
     %>
 </table>
-
-<br><a href="ordermajorinsert.jsp">添加订单</a><br>
 </body>
 </html>

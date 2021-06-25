@@ -33,4 +33,14 @@ public class OrderMajorServiceImpl implements OrderMajorService {
     public Boolean orderMajorDelete(Integer id) throws SQLException {
         return orderMajorMapper.orderMajorDelete(id);
     }
+
+    @Override
+    public List<OrderMajor> orderMajorListByUserId(Integer id) throws SQLException {
+        return orderMajorMapper.orderMajorListByUserId(id);
+    }
+
+    @Override
+    public List<Integer> orderMajorUserIdList() throws SQLException {
+        return orderMajorMapper.orderMajorUserIdList();
+    }
 }

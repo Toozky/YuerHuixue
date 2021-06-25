@@ -36,4 +36,16 @@
     <delete id="orderMajorDelete">
         delete from tb_order_major where id=#{id}
     </delete>
+
+    <select id="orderMajorListByUserId"  parameterType="int" resultMap="orderMajorToUser">
+        select * from tb_order_major where 1=1
+        <if test="id != -1">
+             and user_id=#{id}
+        </if>
+    </select>
+
+    <select id="orderMajorUserIdList" resultType="java.lang.Integer">
+        select distinct user_id from tb_order_major
+    </select>
+
 </mapper>

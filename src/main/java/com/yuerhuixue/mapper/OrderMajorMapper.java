@@ -1,6 +1,7 @@
 package com.yuerhuixue.mapper;
 
 import com.yuerhuixue.pojo.OrderMajor;
+import org.apache.ibatis.annotations.Param;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -18,4 +19,10 @@ public interface OrderMajorMapper {
 
     //删除订单
     Boolean orderMajorDelete(Integer id) throws SQLException;
+
+    //按用户id查订单
+    List<OrderMajor> orderMajorListByUserId(@Param("id")Integer id)throws SQLException;
+
+    //查询订单中所有用户的id
+    List<Integer> orderMajorUserIdList()throws SQLException;
 }
