@@ -62,5 +62,6 @@
         }
     %>
 </table>
+<br><a href="ordermajorinsert.jsp">添加订单</a><br>
 </body>
 </html>
