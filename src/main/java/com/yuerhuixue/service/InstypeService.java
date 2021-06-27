@@ -1,5 +1,6 @@
 package com.yuerhuixue.service;
 
+import com.yuerhuixue.pojo.Instrument;
 import com.yuerhuixue.pojo.Instype;
 
 import java.sql.SQLException;
@@ -21,5 +22,8 @@ public interface InstypeService {
 
     //新增乐器类型
     Boolean instypeInsert(Instype instype) throws SQLException;
+
+    //根据类型id联表查询
+    List<Instrument> findInstrumentByInstype(Integer id) throws SQLException;
 
 }

@@ -4,6 +4,22 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yuerhuixue.mapper.InstypeMapper">
 
+    <resultMap id="instypeToInstrument" type="instype">
+        <id property="id" column="aid"></id>
+        <result property="name" column="aname"></result>
+        <result property="picpath" column="apicpath"></result>
+        <result property="description" column="adescription"></result>
+        <collection property="instruments" ofType="instrument">
+            <id property="id" column="bid"></id>
+            <result property="name" column="bname"></result>
+            <result property="price" column="bprice"></result>
+            <result property="stock" column="bstock"></result>
+            <result property="picpath" column="bpicpath"></result>
+            <result property="brand" column="bbrand"></result>
+            <result property="description" column="bdescription"></result>
+        </collection>
+    </resultMap>
+
     <select id="instypeList" resultType="instype">
         select *
         from tb_instype
@@ -29,13 +45,21 @@
     <insert id="instypeInsert" parameterType="instype">
         insert ignore
         into tb_instype (name, picpath, description)
-        value (#{name},#{picpath},#{description})
+        value (#{name}, #{picpath}, #{description})
     </insert>
 
     <select id="findIdByName" resultType="integer">
         select id
         from tb_instype
         where name=#{name}
+    </select>
+
+    <select id="findInstrumentByInstype" resultMap="instypeToInstrument">
+        select tb_instype.id aid, tb_instype.name aname, tb_instype.picpath apicpath, tb_instype.description adescription,
+         tb_instrument.id bid, tb_instrument.name bname, tb_instrument.price bprice, tb_instrument.stock bstock,
+         tb_instrument.picpath bpicpath, tb_instrument.brand bbrand, tb_instrument.description bdescription
+        from tb_instype, tb_instrument
+        where tb_instype.id = tb_instrument.instype_id and tb_instype.id=#{id}
     </select>
 
 </mapper>

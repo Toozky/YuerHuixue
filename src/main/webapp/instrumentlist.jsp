@@ -30,7 +30,6 @@
         <tbody>
         <%
             List<Instrument> instruments = (List<Instrument>) session.getAttribute("instruments");
-
             for (Instrument instrument : instruments) {
                 %>
                 <tr>

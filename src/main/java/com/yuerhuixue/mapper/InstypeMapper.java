@@ -29,4 +29,7 @@ public interface InstypeMapper {
     //根据类型名查id
     Integer findIdByName(String name) throws SQLException;
 
+    //根据类型id查询乐器
+    Instype findInstrumentByInstype(Integer id) throws SQLException;
+
 }

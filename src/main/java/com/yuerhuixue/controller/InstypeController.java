@@ -1,5 +1,6 @@
 package com.yuerhuixue.controller;
 
+import com.yuerhuixue.pojo.Instrument;
 import com.yuerhuixue.pojo.Instype;
 import com.yuerhuixue.service.InstypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +66,17 @@ public class InstypeController {
             return "instypelist";
         }else {
             return "instypeinsert";
+        }
+    }
+
+    @RequestMapping("instypeToInstrument.do")
+    public String instypeToInstrument(Integer id, HttpSession session) throws SQLException {
+        List<Instrument> findInstruments = instypeService.findInstrumentByInstype(id);
+        if (findInstruments != null){
+            session.setAttribute("findInstruments", findInstruments);
+            return "instypetoinstrument";
+        }else {
+            return "instypelist";
         }
     }
 
