@@ -15,8 +15,8 @@
 <%
     List<OrderMajor> orderMajors=(List<OrderMajor>)session.getAttribute("orderMajors");
 %>
-订单信息表<br>
 <a href="ordermajorlistbyuserid.jsp">按用户ID查询订单</a><br>
+订单信息表<br>
 <table border="1px" cellspacing="0" cellpadding="5px">
     <tr>
         <td>订单ID</td>

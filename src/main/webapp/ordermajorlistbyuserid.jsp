@@ -54,7 +54,7 @@
         <td><%=orderMajor.getTime()%></td>
         <td><%=orderMajor.getState()%></td>
         <td>
-            <a href="orderMajorInsert.do?id=<%=orderMajor.getId()%>">查看明细</a> 　
+            <a href="orderMajorDefinite.do?id=<%=orderMajor.getId()%>">查看明细</a> 　
             <a href="orderMajorDelete.do?id=<%=orderMajor.getId()%>">删除订单</a>
         </td>
     </tr>
