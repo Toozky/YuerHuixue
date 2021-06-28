@@ -24,4 +24,5 @@ public interface OrderMajorService {
 
     //查询订单中所有用户的id
     List<Integer> orderMajorUserIdList()throws SQLException;
+
 }

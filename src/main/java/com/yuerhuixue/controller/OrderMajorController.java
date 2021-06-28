@@ -61,9 +61,6 @@ public class OrderMajorController {
 
     @RequestMapping("orderMajorListByUserId.do")
     public String orderMajorListByUserId(HttpSession session,Integer id) throws SQLException{
-        System.out.println("*********");
-        System.out.println(id);
-        System.out.println("*********");
         List<Integer> userIdList = orderMajorService.orderMajorUserIdList();
         List<OrderMajor> orderMajors = orderMajorService.orderMajorListByUserId(id);
         for (OrderMajor orderMajor : orderMajors) {
@@ -73,4 +70,5 @@ public class OrderMajorController {
         session.setAttribute("orderMajors",orderMajors);
         return "ordermajorlistbyuserid";
     }
+
 }

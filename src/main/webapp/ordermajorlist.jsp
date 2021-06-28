@@ -13,24 +13,8 @@
 </head>
 <body>
 <%
-    List<Integer> userIdList=(List<Integer>)session.getAttribute("userIdList");
     List<OrderMajor> orderMajors=(List<OrderMajor>)session.getAttribute("orderMajors");
 %>
-
-<form action="orderMajorListByUserId.do" method="post">
-    用户ID:
-    <select name="id">
-        <option value="-1">全部</option>
-        <%
-            for (Integer userId : userIdList) {
-        %>
-        <option value="<%=userId%>"><%=userId%></option>
-        <%
-            }
-        %>
-    </select>
-    <input type="submit" value="搜索">
-</form><br>
 订单信息表<br>
 <a href="ordermajorlistbyuserid.jsp">按用户ID查询订单</a><br>
 <table border="1px" cellspacing="0" cellpadding="5px">
@@ -55,7 +39,7 @@
         <td><%=orderMajor.getTime()%></td>
         <td><%=orderMajor.getState()%></td>
         <td>
-            <a href="orderMajorInsert.do?id=<%=orderMajor.getId()%>">查看明细</a> 　
+            <a href="orderMajorDefinite.do?id=<%=orderMajor.getId()%>">查看明细</a> 　
             <a href="orderMajorDelete.do?id=<%=orderMajor.getId()%>">删除订单</a>
         </td>
     </tr>
