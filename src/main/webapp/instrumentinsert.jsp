@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.yuerhuixue.pojo.Instype" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: pocoa
   Date: 2021/6/25
@@ -14,7 +15,18 @@
 
     <form action="instrumentInsert.do" method="post">
         乐器名：<input type="text" name="name" placeholder="输入乐器名（必填）"><br>
-        类型名：<input type="text" name="instype.name" placeholder="输入类型名"><br>
+        类型名：
+        <select name="instypeName">
+            <option value=""></option>
+            <%
+                List<Instype> instypes = (List<Instype>) session.getAttribute("instypes");
+                for (Instype instype : instypes) {
+            %>
+            <option value="<%=instype.getId()%>"><%=instype.getName()%></option>
+            <%
+                }
+            %>
+        </select><br>
         价　格：<input type="text" name="price" placeholder="输入价格（必填）"><br>
         库　存：<input type="text" name="stock" placeholder="输入库存（必填）"><br>
         图片地址：<input type="text" name="picpath" placeholder="输入图片地址"><br>

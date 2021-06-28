@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.yuerhuixue.pojo.Instype" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: pocoa
   Date: 2021/6/24

@@ -50,7 +50,7 @@
         </tbody>
     </table>
 
-    <a href="instrumentinsert.jsp">添加乐器</a><br>
+    <a href="instrumentInsertPage.do">添加乐器</a><br>
     <a href="index.jsp">返回首页</a><br>
 
 </body>

@@ -16,8 +16,8 @@
     <table>
         <thead>
         <tr>
-            <th>乐器名</th>
             <th>类型</th>
+            <th>乐器名</th>
             <th>价格</th>
             <th>库存</th>
             <th>图片地址</th>
@@ -31,8 +31,8 @@
             for (Instrument findInstrument : findInstruments) {
                 %>
                 <tr>
-                    <td><%=findInstrument.getName()%></td>
                     <td><%=findInstrument.getInstype().getName()%></td>
+                    <td><%=findInstrument.getName()%></td>
                     <td><%=findInstrument.getPrice()%></td>
                     <td><%=findInstrument.getStock()%></td>
                     <td><%=findInstrument.getPicpath()%></td>
