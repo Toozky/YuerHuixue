@@ -4,47 +4,33 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yuerhuixue.mapper.OrderDetailMapper">
 
-    <resultMap id="orderDetailToUserAndInstrument" type="orderDetail">
-        <result property="number" column="number"/>
-        <collection property="orderMajor" resultMap="orderMajorToUser" ofType="orderMajor"/>
-        <collection property="instrument" resultMap="instrumentToInstype" ofType="instrument"/>
-    </resultMap>
-
-    <resultMap id="orderMajorToUser" type="orderMajor">
-        <id property="id" column="id"/>
-        <result property="total" column="total"/>
-        <result property="time" column="time"/>
-        <result property="state" column="state"/>
-        <association property="user" javaType="user">
-            <id property="id" column="user_id"/>
-            <result property="name" column="name"/>
-            <result property="tel" column="tel"/>
-            <result property="email" column="email"/>
-            <result property="address" column="address"/>
-            <result property="pass" column="pass"/>
-            <result property="businessman" column="businessman"/>
+    <resultMap id="orderDetailTo" type="orderDetail">
+        <result property="number" column="number"></result>
+        <association property="orderMajor" javaType="orderMajor" >
+            <id property="id" column="mid"></id>
+            <result property="user.id" column="user_id"></result>
+            <result property="total" column="total"></result>
+            <result property="time" column="time"></result>
+            <result property="state" column="state"></result>
+        </association>
+        <association property="instrument" javaType="instrument" >
+            <id property="id" column="iid"></id>
+            <result property="name" column="name"></result>
+            <result property="instype.id" column="instype_id"></result>
+            <result property="price" column="price"></result>
+            <result property="stock" column="stock"></result>
+            <result property="picpath" column="picpath"></result>
+            <result property="brand" column="brand"></result>
+            <result property="description" column="description"></result>
         </association>
     </resultMap>
 
-    <resultMap id="instrumentToInstype" type="instrument">
-        <id property="id" column="id"/>
-        <result property="name" column="name"/>
-        <result property="price" column="price"/>
-        <result property="stock" column="stock"/>
-        <result property="picpath" column="picpath"/>
-        <result property="brand" column="brand"/>
-        <result property="description" column="description"/>
-        <association property="instype" javaType="instype">
-            <id property="id" column="id"/>
-            <result property="name" column="name"/>
-            <result property="picpath" column="picpath"/>
-            <result property="description" column="description"/>
-        </association>
-    </resultMap>
-
-
-    <select id="orderDetailFindByOrderMajorId" resultMap="orderDetailToUserAndInstrument">
-        select * from tb_order_detail where order_major_id=#{id}
+    <select id="orderDetailFindByOrderMajorId" resultMap="orderDetailTo">
+        select tb_order_major.id mid, tb_instrument.id iid, number
+        from tb_order_detail, tb_order_major, tb_instrument
+        where tb_order_detail.order_major_id=tb_order_major.id
+            and tb_order_detail.instrument_id=tb_instrument.id
+            and tb_order_detail.order_major_id=#{id}
     </select>
 
 </mapper>
