@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuerhuixue.mapper.OrderDetailSimpleMapper">
+
+    <resultMap id="orderDetailmin" type="orderDetailSimple">
+        <result property="number" column="number"/>
+        <result property="instruments_id" column="instruments_id"/>
+        <result property="order_major_id" column="order_major_id"/>
+    </resultMap>
+
+    <select id="orderDetailFindByOrderMajorId" resultMap="orderDetailmin">
+        select * from tb_order_detail where order_major_id=#{id}
+    </select>
+
+</mapper>
