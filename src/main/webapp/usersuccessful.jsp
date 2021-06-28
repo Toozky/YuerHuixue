@@ -20,6 +20,7 @@
             %>
 
     login successful!<br>
+    <a href="userinfo.jsp">查看个人信息</a><br>
     <a href="usermodify.jsp">修改个人信息</a><br>
     <a href="userDelete.do?<%=user.getId()%>">删除用户</a><br>
     <a href="userLogout.do">注销用户</a>

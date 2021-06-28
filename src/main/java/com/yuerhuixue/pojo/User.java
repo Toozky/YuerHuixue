@@ -17,6 +17,6 @@ public class User {
     private String email;
     private String address;
     private String pass;
-    private Boolean businessman = false;
+    private Boolean businessman;
 
 }

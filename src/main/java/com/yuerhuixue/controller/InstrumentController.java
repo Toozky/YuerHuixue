@@ -1,7 +1,9 @@
 package com.yuerhuixue.controller;
 
 import com.yuerhuixue.pojo.Instrument;
+import com.yuerhuixue.pojo.Instype;
 import com.yuerhuixue.service.InstrumentService;
+import com.yuerhuixue.service.InstypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,10 @@ public class InstrumentController {
     @Autowired
     @Qualifier("instrumentServiceImpl")
     private InstrumentService instrumentService;
+
+    @Autowired
+    @Qualifier("instypeServiceImpl")
+    private InstypeService instypeService;
 
     @RequestMapping("instrumentList.do")
     public String instrumentList(HttpSession session) throws SQLException{
@@ -54,6 +60,13 @@ public class InstrumentController {
         List<Instrument> instruments = instrumentService.instrumentList();
         session.setAttribute("instruments", instruments);
         return "instrumentlist";
+    }
+
+    @RequestMapping("instrumentInsertPage.do")
+    public String instrumentInsertPage(HttpSession session) throws SQLException {
+        List<Instype> instypes = instypeService.instypeList();
+        session.setAttribute("instypes", instypes);
+        return "instrumentinsert";
     }
 
     @RequestMapping("instrumentInsert.do")

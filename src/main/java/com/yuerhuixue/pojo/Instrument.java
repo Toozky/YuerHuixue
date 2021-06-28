@@ -23,5 +23,4 @@ public class Instrument {
     private String brand;
     private String description;
 
-
 }
