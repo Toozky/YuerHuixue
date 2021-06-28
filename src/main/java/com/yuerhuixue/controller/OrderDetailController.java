@@ -2,6 +2,7 @@ package com.yuerhuixue.controller;
 
 import com.yuerhuixue.pojo.OrderDetail;
 import com.yuerhuixue.service.OrderDetailService;
+import com.yuerhuixue.service.OrderDetailSimpleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -15,12 +16,12 @@ import java.util.List;
 public class OrderDetailController {
 
     @Autowired
-    @Qualifier("orderDetailServiceImpl")
-    OrderDetailService orderDetailService;
+    @Qualifier("orderDetailSimpleServiceImpl")
+    OrderDetailSimpleService orderDetailSimpleService;
 
     @RequestMapping("orderMajorDefinite.do")
     public String orderMajorDefinite(HttpSession session,Integer id) throws SQLException {
-        List<OrderDetail> orderDetails = orderDetailService.orderDetailFindByOrderMajorId(id);
+        List<OrderDetail> orderDetails = orderDetailSimpleService.orderDetailFindByOrderMajorId(id);
         session.setAttribute("orderDetails",orderDetails);
         return "orderdetail";
     }

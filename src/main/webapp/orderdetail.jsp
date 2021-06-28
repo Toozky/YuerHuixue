@@ -12,9 +12,6 @@
     <title>订单明细</title>
 </head>
 <body>
-<%
-    List<OrderDetail> orderDetails=(List<OrderDetail>)session.getAttribute("orderDetails");
-%>
 <table border="1px" cellspacing="0" cellpadding="5px">
     <tr>
         <td>订单ID</td>
@@ -22,6 +19,7 @@
         <td>乐器数量</td>
     </tr>
     <%
+        List<OrderDetail> orderDetails=(List<OrderDetail>)session.getAttribute("orderDetails");
         for (OrderDetail orderDetail : orderDetails) {
     %>
     <tr>
