@@ -12,20 +12,34 @@
     <title>订单明细</title>
 </head>
 <body>
+<%
+    List<OrderDetail> orderDetails=(List<OrderDetail>)session.getAttribute("orderDetails");
+    Integer id = orderDetails.get(0).getOrderMajor().getId();
+    Integer userid = orderDetails.get(0).getOrderMajor().getUser().getId();
+    String name = orderDetails.get(0).getOrderMajor().getUser().getName();
+%>
+订单ID:<%=id%><br>
+用户ID:<%=userid%><br>
+用户名：<%=name%><br>
 <table border="1px" cellspacing="0" cellpadding="5px">
     <tr>
-        <td>订单ID</td>
         <td>乐器ID</td>
+        <td>乐器名称</td>
+        <td>乐器类型</td>
         <td>乐器数量</td>
+        <td>订单时间</td>
+        <td>订单状态</td>
     </tr>
     <%
-        List<OrderDetail> orderDetails=(List<OrderDetail>)session.getAttribute("orderDetails");
         for (OrderDetail orderDetail : orderDetails) {
     %>
     <tr>
-        <td><%=orderDetail.getOrderMajor().getId()%></td>
         <td><%=orderDetail.getInstrument().getId()%></td>
+        <td><%=orderDetail.getInstrument().getName()%></td>
+        <td><%=orderDetail.getInstrument().getInstype().getName()%></td>
         <td><%=orderDetail.getNumber()%></td>
+        <td><%=orderDetail.getOrderMajor().getTime()%></td>
+        <td><%=orderDetail.getOrderMajor().getState()%></td>
     </tr>
     <%
         }

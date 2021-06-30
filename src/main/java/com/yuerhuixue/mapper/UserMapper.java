@@ -21,4 +21,7 @@ public interface UserMapper {
     //删除用户
     Boolean userDelete(User user) throws SQLException;
 
+    //根据ID查姓名
+    String userNameFindById(@Param("user_id")Integer id) throws SQLException;
+
 }
