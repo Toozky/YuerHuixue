@@ -32,9 +32,9 @@ public class UserController {
     public String  userRegister(User user) throws SQLException {
         Boolean b = userService.userRegister(user);
         if (b){
-            return "userregister";
-        }else {
             return "userlogin";
+        }else {
+            return "userregister";
         }
     }
 
