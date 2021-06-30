@@ -19,9 +19,14 @@ public class OrderDetailController {
     @Qualifier("orderDetailSimpleServiceImpl")
     OrderDetailSimpleService orderDetailSimpleService;
 
+    @Autowired
+    @Qualifier("orderDetailServiceImpl")
+    OrderDetailService orderDetailService;
+
     @RequestMapping("orderMajorDefinite.do")
     public String orderMajorDefinite(HttpSession session,Integer id) throws SQLException {
-        List<OrderDetail> orderDetails = orderDetailSimpleService.orderDetailFindByOrderMajorId(id);
+//        List<OrderDetail> orderDetails = orderDetailSimpleService.orderDetailFindByOrderMajorId(id);
+        List<OrderDetail> orderDetails = orderDetailService.orderDetailFindByOrderMajorId(id);
         session.setAttribute("orderDetails",orderDetails);
         return "orderdetail";
     }

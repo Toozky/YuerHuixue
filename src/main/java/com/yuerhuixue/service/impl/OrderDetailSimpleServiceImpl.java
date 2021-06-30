@@ -39,6 +39,10 @@ public class OrderDetailSimpleServiceImpl implements OrderDetailSimpleService {
             orderDetails.add(orderDetail);
         }
 
+        for (OrderDetail detail : orderDetails) {
+            System.out.println(detail.toString());
+        }
+
         return orderDetails;
     }
 }

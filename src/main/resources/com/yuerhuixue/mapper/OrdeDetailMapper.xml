@@ -6,18 +6,18 @@
 
     <resultMap id="orderDetailToUserAndInstrument" type="orderDetail">
         <result property="number" column="number"/>
-        <collection property="orderMajor" resultMap="orderMajorToUser" ofType="orderMajor"/>
-        <collection property="instrument" resultMap="instrumentToInstype" ofType="instrument"/>
+        <collection property="instrument" resultMap="instrumentToInstype" column="instruments_id"/>
+        <collection property="orderMajor" resultMap="orderMajorToUser" column="order_major_id"/>
     </resultMap>
 
     <resultMap id="orderMajorToUser" type="orderMajor">
-        <id property="id" column="id"/>
+        <id property="id" column="major_id"/>
         <result property="total" column="total"/>
         <result property="time" column="time"/>
         <result property="state" column="state"/>
         <association property="user" javaType="user">
             <id property="id" column="user_id"/>
-            <result property="name" column="name"/>
+            <result property="name" column="user_name"/>
             <result property="tel" column="tel"/>
             <result property="email" column="email"/>
             <result property="address" column="address"/>
@@ -27,24 +27,30 @@
     </resultMap>
 
     <resultMap id="instrumentToInstype" type="instrument">
-        <id property="id" column="id"/>
-        <result property="name" column="name"/>
-        <result property="price" column="price"/>
-        <result property="stock" column="stock"/>
-        <result property="picpath" column="picpath"/>
-        <result property="brand" column="brand"/>
-        <result property="description" column="description"/>
+        <id property="id" column="instrument_id"/>
+        <result property="name" column="instrument_name"/>
+        <result property="price" column="instrument_price"/>
+        <result property="stock" column="instrument_stock"/>
+        <result property="picpath" column="instrument_picpath"/>
+        <result property="brand" column="instrument_brand"/>
+        <result property="description" column="instrument_description"/>
         <association property="instype" javaType="instype">
-            <id property="id" column="id"/>
-            <result property="name" column="name"/>
-            <result property="picpath" column="picpath"/>
-            <result property="description" column="description"/>
+            <id property="id" column="instype_id"/>
+            <result property="name" column="instype_name"/>
+            <result property="picpath" column="instype_picpath"/>
+            <result property="description" column="instype_description"/>
         </association>
     </resultMap>
 
 
     <select id="orderDetailFindByOrderMajorId" resultMap="orderDetailToUserAndInstrument">
-        select * from tb_order_detail where order_major_id=#{id}
+        select tb_user.name user_name,instruments_id,tb_instrument.`name` instrument_name,price instrument_price,tb_instype.`name` instype_name,number,time,state
+         from tb_order_detail,tb_instrument,tb_instype,tb_order_major,tb_user
+         where order_major_id=#{id}
+         and tb_instrument.instype_id=tb_instype.id
+         and instruments_id=tb_instrument.id
+         and order_major_id=tb_order_major.id
+         and tb_user.id=tb_order_major.user_id
     </select>
 
 </mapper>

@@ -10,7 +10,11 @@
             <entry key="com.zeroturnaround.jrebel.remoting.ModuleRemoteServerPreviousEnabledSelection" value="instance" />
             <entry key="com.zeroturnaround.jrebel.remoting.ModuleRemoteServerSelection" value="off" />
             <entry key="jrebelEnabled" value="true" />
+<<<<<<< HEAD
             <entry key="lastExternalPluginCheckTime" value="1625014590378" />
+=======
+            <entry key="lastExternalPluginCheckTime" value="1624927984472" />
+>>>>>>> origin/master
           </map>
         </option>
       </configuration>
