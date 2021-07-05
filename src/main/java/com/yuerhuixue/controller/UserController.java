@@ -74,7 +74,7 @@ public class UserController {
 
     @RequestMapping("userRegisterCancel.do")
     public String userRegisterCancel(){
-        return "login";
+        return "userlogin";
     }
 
 }
