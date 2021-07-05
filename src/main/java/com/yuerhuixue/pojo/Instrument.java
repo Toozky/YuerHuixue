@@ -13,8 +13,10 @@ public class Instrument {
 
     private Integer id;
     private String name;
+
     //乐器类型
     private Instype instype;
+
     private Double price;
     private Integer stock;
     private String picpath;

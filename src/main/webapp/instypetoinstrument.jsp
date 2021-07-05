@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <table>
+    <table border="1" cellspacing="0" cellpadding="5">
         <thead>
         <tr>
             <th>类型</th>
@@ -27,7 +27,7 @@
         </thead>
         <tbody>
         <%
-            List<Instrument> findInstruments = (List<Instrument>) session.getAttribute("findInstruments");
+            List<Instrument> findInstruments = (List<Instrument>) request.getAttribute("findInstruments");
             for (Instrument findInstrument : findInstruments) {
                 %>
                 <tr>
@@ -35,7 +35,17 @@
                     <td><%=findInstrument.getName()%></td>
                     <td><%=findInstrument.getPrice()%></td>
                     <td><%=findInstrument.getStock()%></td>
-                    <td><%=findInstrument.getPicpath()%></td>
+                    <td>
+                        <%
+                            if(findInstrument.getPicpath() != null && findInstrument.getPicpath().length() != 0){
+                        %>
+                        <img src="<%=findInstrument.getPicpath()%>" width="100" height="100"
+                             alt="<%=findInstrument.getPicpath().substring(findInstrument.getPicpath().lastIndexOf("/") + 1)%>"
+                             title="<%=findInstrument.getPicpath().substring(findInstrument.getPicpath().lastIndexOf("/") + 1)%>">
+                        <%
+                            }
+                        %>
+                    </td>
                     <td><%=findInstrument.getBrand()%></td>
                     <td><%=findInstrument.getDescription()%></td>
                 </tr>
@@ -45,7 +55,7 @@
         </tbody>
     </table>
 
-    <a href="instypelist.jsp">返回乐器类型</a><br>
+    <a href="instypeList.do">返回乐器类型</a><br>
 
 </body>
 </html>

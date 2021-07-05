@@ -14,6 +14,14 @@
         <property name="suffix" value=".jsp"></property>
     </bean>
 
+    <!-- 图片/文件上传下载 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 默认编码 -->
+        <property name="defaultEncoding" value="utf-8"></property>
+        <!-- 限定文件大小 -->
+        <property name="maxUploadSize" value="1048576"></property>
+    </bean>
+
     <!-- 处理静态资源 默认servlet处理 -->
     <mvc:default-servlet-handler/>
 

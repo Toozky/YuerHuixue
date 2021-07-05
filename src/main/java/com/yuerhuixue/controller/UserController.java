@@ -67,4 +67,14 @@ public class UserController {
         return "userlogin";
     }
 
+    @RequestMapping("userModifyCancel.do")
+    public String userModifyCancel(){
+        return "usersuccessful";
+    }
+
+    @RequestMapping("userRegisterCancel.do")
+    public String userRegisterCancel(){
+        return "login";
+    }
+
 }
