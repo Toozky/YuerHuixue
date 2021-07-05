@@ -16,6 +16,7 @@
     <a href="adminRegisterPage.do">管理员注册</a><br>
     <hr>
     <a href="userlogin.jsp">用户登录</a><br>
+    <a href="userregister.jsp">用户注册</a><br>
     <hr>
     <a href="instrumentList.do">乐器管理</a><br>
     <a href="instypeList.do">乐器类型管理</a><br>
