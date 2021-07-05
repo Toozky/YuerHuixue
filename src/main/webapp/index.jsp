@@ -20,7 +20,8 @@
     <a href="instrumentList.do">乐器管理</a><br>
     <a href="instypeList.do">乐器类型管理</a><br>
     <hr>
-    <a href="orderMajorList.do">查看所有订单</a>
+    <a href="orderMajorList.do">查看所有订单</a><br>
 
+    <a href="test.do">test</a>
 </body>
 </html>

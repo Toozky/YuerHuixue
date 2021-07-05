@@ -18,13 +18,10 @@
         邮　箱：<input type="text" name="email" placeholder="输入邮箱"><br>
         地　址：<input type="text" name="address" placeholder="输入地址（必填）"><br>
         密　码：<input type="password" name="pass" placeholder="输入密码（必填）"><br>
-        是否为二手卖家：
-        <input name="businessman" type="radio" value="true" ${user.businessman?"checked='checked'":""}/>是 　
-        <input name="businessman" type="radio" value="false" ${user.businessman?"":"checked='checked'"}/>否<br>
         <input type="submit" value="注册"><br>
     </form>
 
-    <a href="userlogin.jsp">取消注册</a><br>
+    <a href="userRegisterCancel.do">取消注册</a><br>
 
 </body>
 </html>

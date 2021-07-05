@@ -13,14 +13,14 @@
 </head>
 <body>
 
-    <form action="instypeInsert.do" method="post">
+    <form action="instypeInsert.do" method="post" enctype="multipart/form-data">
         乐器类型：<input type="text" name="name" placeholder="输入乐器类型名（必填）"><br>
-        图片地址：<input type="text" name="picpath" placeholder="输入图片地址"><br>
+        图　片：<input type="file" name="pic"><br>
         描　　述：<input type="text" name="description" placeholder="输入描述"><br>
         <input type="submit" value="添加"><br>
     </form>
 
-    <a href="instypelist.jsp">取消添加</a><br>
+    <a href="instypeList.do">取消添加</a><br>
 
 </body>
 </html>

@@ -32,9 +32,9 @@ public class InstrumentServiceImpl implements InstrumentService {
 
     @Override
     public Boolean instrumentModify(Instrument instrument) throws SQLException {
-        Integer idByName = instypeMapper.findIdByName(instrument.getInstype().getName());
-        Instype instypeById = instypeMapper.findInstypeById(idByName);
-        instrument.setInstype(instypeById);
+//        Integer idByName = instypeMapper.findIdByName(instrument.getInstype().getName());
+//        Instype instypeById = instypeMapper.findInstypeById(idByName);
+//        instrument.setInstype(instypeById);
         return instrumentMapper.instrumentModify(instrument);
     }
 

@@ -13,14 +13,14 @@
 </head>
 <body>
 
-    <table>
+    <table border="1" cellspacing="0" cellpadding="5">
         <thead>
             <tr>
                 <th>乐器名</th>
                 <th>类型</th>
                 <th>价格</th>
                 <th>库存</th>
-                <th>图片地址</th>
+                <th>图片</th>
                 <th>品牌</th>
                 <th>描述</th>
                 <th>操作1</th>
@@ -29,7 +29,8 @@
         </thead>
         <tbody>
         <%
-            List<Instrument> instruments = (List<Instrument>) session.getAttribute("instruments");
+            List<Instrument> instruments = (List<Instrument>) request.getAttribute("instruments");
+
             for (Instrument instrument : instruments) {
                 %>
                 <tr>
@@ -37,7 +38,17 @@
                     <td><%=instrument.getInstype().getName()%></td>
                     <td><%=instrument.getPrice()%></td>
                     <td><%=instrument.getStock()%></td>
-                    <td><%=instrument.getPicpath()%></td>
+                    <td>
+                        <%
+                            if(instrument.getPicpath() != null && instrument.getPicpath().length() != 0){
+                                %>
+                                <img src="<%=instrument.getPicpath()%>" width="100" height="100"
+                                alt="<%=instrument.getPicpath().substring(instrument.getPicpath().lastIndexOf("/") + 1)%>"
+                                title="<%=instrument.getPicpath().substring(instrument.getPicpath().lastIndexOf("/") + 1)%>">
+                                <%
+                            }
+                        %>
+                    </td>
                     <td><%=instrument.getBrand()%></td>
                     <td><%=instrument.getDescription()%></td>
                     <td><a href="instrumentModifyPage.do?id=<%=instrument.getId()%>">修改</a></td>

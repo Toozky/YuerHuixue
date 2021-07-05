@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <table>
+    <table border="1" cellspacing="0" cellpadding="5">
         <tr>
             <td>用户名</td>
             <td>${user.name}</td>
