@@ -23,6 +23,6 @@
     <hr>
     <a href="orderMajorList.do">查看所有订单</a><br>
 
-    <a href="test.do">test</a>
+
 </body>
 </html>
