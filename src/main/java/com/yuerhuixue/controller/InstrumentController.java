@@ -57,32 +57,37 @@ public class InstrumentController {
     @RequestMapping("instrumentModify.do")
     public String instrumentModify(@RequestParam MultipartFile pic, Instrument instrument, HttpServletRequest request) throws SQLException, IOException {
 
-        //获取乐器原有图片地址
-        String picpathBefore = instrumentService.findInstrumentById(instrument.getId()).getPicpath();
+        if (pic.getOriginalFilename() != ""){
+            //获取乐器原有图片地址
+            String picpathBefore = instrumentService.findInstrumentById(instrument.getId()).getPicpath();
 
-        //项目路径
-        String picpathPrefix = request.getServletContext().getRealPath("/");
+            //项目路径
+            String picpathPrefix = request.getServletContext().getRealPath("/");
 
-        File fileBefore = new File(picpathPrefix + "/" + picpathBefore);
+            File fileBefore = new File(picpathPrefix + picpathBefore);
 
-        //删除原有乐器图片
-        fileBefore.delete();
-        instrument.setPicpath(null);
+            //删除原有乐器图片
+            fileBefore.delete();
+            instrument.setPicpath(null);
 
-        //进行图片上传并更名
-        String picRealname = pic.getOriginalFilename();
-        String picname = ImageUtil.setPicname();
+            //进行图片上传并更名
+            String picRealname = pic.getOriginalFilename();
+            String picname = ImageUtil.setPicname();
 
-        String picpath = "uploadimgs/instrument/" + picname;
+            String picpath = "uploadimgs/instrument/" + picname;
 
-        //判断后缀是否为jpg
-        if (ImageUtil.isJpg(picRealname)){
+            //判断后缀是否为jpg
+            if (ImageUtil.isJpg(picRealname)){
 
-            File ToPicpath = new File(picpathPrefix + "/" + picpath);
-            pic.transferTo(ToPicpath);
+                File ToPicpath = new File(picpathPrefix + picpath);
+                pic.transferTo(ToPicpath);
 
-            //设置图片路径存入数据库
-            instrument.setPicpath(picpath);
+                //设置图片路径存入数据库
+                instrument.setPicpath(picpath);
+            }
+        }else {
+            String path = instrumentService.findInstrumentById(instrument.getId()).getPicpath();
+            instrument.setPicpath(path);
         }
 
         Boolean b = instrumentService.instrumentModify(instrument);
@@ -110,7 +115,7 @@ public class InstrumentController {
         //乐器删除后删除图片
         if(b){
 
-            File file = new File(picpathPrefix + "/" + picpath);
+            File file = new File(picpathPrefix + picpath);
             file.delete();
 
         }
@@ -144,7 +149,7 @@ public class InstrumentController {
         //判断后缀是否为jpg
         if (ImageUtil.isJpg(picRealname)){
 
-            File ToPicpath = new File(picpathPrefix + "/" + picpath);
+            File ToPicpath = new File(picpathPrefix + picpath);
             pic.transferTo(ToPicpath);
 
             //设置图片路径存入数据库

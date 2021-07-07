@@ -1,0 +1,196 @@
+*{margin: 0;padding: 0;}
+.body{
+
+    overflow:hidden;
+    width:100%;
+}
+.center{
+    
+    
+    margin-left: auto;
+    margin-right: auto;
+}
+.content{
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    box-shadow: 0 0 10px 2px #333;
+}
+.nav-center{
+    width: 300px;
+    height: 100px;
+    font-size: 22px;
+    text-align: center;
+
+}
+.zhanghao{
+    display: inline-block;
+    line-height: 100px;
+    color: rgb(212, 127, 71);
+}
+.face{
+    width: 300px;
+    height: 400px;
+    position: relative;
+}
+.face>div{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    background-color: #fff;
+}
+.logn{
+    z-index: 100;
+}
+.saoma img{
+    width: 80%;
+    margin-top: 18px;
+    margin-left: 37px;
+}
+.detail-one{
+    text-align:center;
+    font-size: 12px;
+}
+.form{
+    height: 210px;
+}
+.text{
+    width: 300px;
+    height: 50px;
+    border: 1px solid silver;
+    text-indent: 20px;
+}
+.password{
+    margin-top: 20px;
+    width: 300px;
+    height: 50px;
+    border: 1px solid silver;
+    text-indent: 20px;
+}
+.detail{
+    width: 300px;
+    height: 50px;
+    margin-top: 20px;
+    background-color: orange;
+    color: white;
+    font-size: 20px;
+    border: none;
+}
+.zhuce{
+    color: gray;
+    line-height: 40px;
+    margin-left: 55px;
+}
+.bottom{
+    width: 300px;
+    height: 150px;
+}
+.nav-bottom{
+    display: inline-block;
+    margin-top: 20px;
+    height: 40px;
+    color: rgb(121, 110, 110);
+}
+.left,.right{
+    display: inline-block;
+    width: 97px;
+    height: 2px;
+    background-color: rgb(121, 110, 110);
+}
+.foot{
+    height: 90px;
+    margin-left: 82.5px;
+}
+.foot a{
+    position: relative;
+    display: inline-block;
+    width:30px;
+    height:30px;
+    background:#333;
+    border-radius: 50%;
+}
+.foot span{
+    display: inline-block;
+    position: absolute;
+    margin:auto;
+    width: 18px;
+    height: 18px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("../images/icons_type.png") no-repeat;
+
+}
+.foot .one{
+    background-position: -20px 0;
+}
+.foot .two{
+    background-position: -38px 0;
+}
+.foot .three{
+    background-position: -57px 0;
+}
+.foot .four{
+    background-position: -84px 0;
+    width:24px;
+}
+.header{
+    width: 100%;
+    height: 100px;
+    position: relative;
+}
+.header>img{
+    height: 60px;
+    background-color: orangered;
+    position: absolute;
+    top: 20px;
+    left: 80px;
+}
+.header>h1{
+    position: absolute;
+    top: 15px;
+    left: 150px;
+}
+.header>p{
+    position: absolute;
+    top: 61px;
+    left: 150px;
+    font-size: 10px;
+}
+.pic{
+    background :url("../images/banner1.png") no-repeat  ;
+    background-size: 112% 600px;
+    height: 700px;
+ 
+    margin-right: 0px;
+    position: relative;
+}
+.left-one{
+    position: absolute;
+    left: 50%;
+    top: 50px;
+}
+.underside{
+    width: 100%;
+    height: 100px;
+    text-align: center;
+}
+.underside>a{
+    text-decoration: none;
+    font-size: 20px;
+    color:#333;
+    margin-left: 10px;
+}
+.underside>p{
+    margin-top: 10px;
+    color: gray;
+}
+.guohui{
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background-color: orangered;
+}

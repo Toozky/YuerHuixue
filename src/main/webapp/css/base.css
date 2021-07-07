@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+html, body, div, p, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form, input, select, button, textarea, iframe, table, th, td { margin: 0; padding: 0;}
+
+img { border: 0 none; vertical-align: top; }
+
+ul, li { list-style-type: none; }
+
+h1, h2, h3, h4, h5, h6 { font-size: 14px; }
+
+body, input, select, button, textarea { font-size: 12px; font-family:宋体}
+
+tbody{ width:100%;}
+
+button { cursor: pointer; }
+
+i, em, cite { font-style: normal; }
+
+body { background: #fff; color: #333; line-height: 1.2; }
+
+a{ color: #666; text-decoration: none; }
+
+a:visited {  }
+
+a:active, a:hover {}
+
+a:focus { outline: none; }
+
+a.blue{ color:#0066CC}
+
+  
+
+.fixed:after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
+
+.fixed { display: block; min-height: 1%; }
+
+*html .fixed { height:auto; }
+
+.clear { dipslay: block!important; float: none!important; clear: both; overflow: hidden; width: auto!important; height: 0; margin: 0 auto!important; padding: 0!important; font-size: 0; line-height: 0; }
+
+.more { float: right; }
+
+.more a { font-weight: normal; font-size: 12px; }
+
+.fl, .fr { display: inline; float: left; }
+
+.fr { float: right; }
+
+/* 遮罩层 */
+
+#wrapper{
+
+    width: 100%;
+
+    background: #000;
+
+    opacity: 0;
+
+    filter:alpha(opacity=0);
+
+    position: absolute;
+
+    z-index: 100;
+
+    left: 0;
+
+    top: 0;
+
+}
+
+.ml{ margin-left:15px;}
+
+.mr{ margin-right:15px;}
+
+.mb{ margin-bottom:15px;}
+
+.pl{ padding-left:15px;}
+
+.pr{ padding-right:15px;}
+
+.pt{ padding-top:15px;}
+
+.pb{ padding-bottom:15px;}
+
+.pb10{ padding-bottom:10px;}
+
+.mb10{margin-bottom: 10px;}
+
+.mb30{ margin-bottom: 30px;}
+
+.mt30{ margin-top: 30px;}
+
+.text_l{ text-align: left;}
+
+.text_r{ text-align: right;}
+
+.text_1{overflow: hidden;text-overflow: ellipsis;white-space: nowrap; display: block;}
+
+.text_2{overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical; max-height: 45px;}
+
+.text_3{overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical; max-height: 67px;}
+
+.text_4{overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 4;-webkit-box-orient: vertical; max-height: 89px;}
+
+.font_color_red{ color: #E01303;}
+
+.font_jj{letter-spacing:0px}
+
+.ft18{ font-size: 18px;}
+
+.ft24{ font-size: 24px;}
+
+.main{width: 1226px; margin: 0 auto;}
+
+.f_cs{color: #FF6700;}

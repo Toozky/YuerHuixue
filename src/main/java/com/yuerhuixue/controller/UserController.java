@@ -1,14 +1,20 @@
 package com.yuerhuixue.controller;
 
+import com.yuerhuixue.pojo.Instrument;
+import com.yuerhuixue.pojo.Instype;
 import com.yuerhuixue.pojo.User;
+import com.yuerhuixue.service.InstrumentService;
+import com.yuerhuixue.service.InstypeService;
 import com.yuerhuixue.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -17,12 +23,45 @@ public class UserController {
     @Qualifier("userServiceImpl")
     private UserService userService;
 
+    @Autowired
+    @Qualifier("instrumentServiceImpl")
+    private InstrumentService instrumentService;
+
+    @Autowired
+    @Qualifier("instypeServiceImpl")
+    private InstypeService instypeService;
+
+    @RequestMapping("userIndex.do")
+    public String userIndex(HttpServletRequest request, HttpSession session) throws SQLException{
+
+        //乐器
+        List<Instrument> instruments = instrumentService.instrumentList();
+        request.setAttribute("instruments", instruments);
+
+        //乐器类型
+        List<Instype> instypes = instypeService.instypeList();
+        request.setAttribute("instypes", instypes);
+
+        //用户
+        session.setAttribute("user", null);
+        return "userindex";
+    }
+
     @RequestMapping("userLogin.do")
-    public String userLogin(String name, String pass, HttpSession session) throws SQLException {
+    public String userLogin(String name, String pass, HttpSession session, HttpServletRequest request) throws SQLException {
         User user = userService.userLogin(name, pass);
         if (user!=null){
             session.setAttribute("user", user);
-            return "usersuccessful";
+
+            //乐器
+            List<Instrument> instruments = instrumentService.instrumentList();
+            request.setAttribute("instruments", instruments);
+
+            //乐器类型
+            List<Instype> instypes = instypeService.instypeList();
+            request.setAttribute("instypes", instypes);
+
+            return "userindex";
         }else {
             return "userlogin";
         }
@@ -62,9 +101,17 @@ public class UserController {
     }
 
     @RequestMapping("userLogout.do")
-    public String userLogout(HttpSession session){
-        session.removeAttribute("user");
-        return "userlogin";
+    public String userLogout(HttpSession session, HttpServletRequest request) throws SQLException {
+        //乐器
+        List<Instrument> instruments = instrumentService.instrumentList();
+        request.setAttribute("instruments", instruments);
+
+        //乐器类型
+        List<Instype> instypes = instypeService.instypeList();
+        request.setAttribute("instypes", instypes);
+
+        session.setAttribute("user", null);
+        return "userindex";
     }
 
     @RequestMapping("userModifyCancel.do")
@@ -74,7 +121,7 @@ public class UserController {
 
     @RequestMapping("userRegisterCancel.do")
     public String userRegisterCancel(){
-        return "login";
+        return "userlogin";
     }
 
 }
