@@ -1,5 +1,7 @@
 package com.yuerhuixue.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.sun.deploy.net.HttpResponse;
 import com.yuerhuixue.pojo.Admin;
 import com.yuerhuixue.pojo.User;
 import com.yuerhuixue.service.AdminService;
@@ -8,7 +10,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.ws.Response;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -20,7 +25,7 @@ public class AdminController {
     private AdminService adminService;
 
     @RequestMapping("adminLogin.do")
-    public String adminLogin(HttpSession session,String name, String pass) throws SQLException {
+    public String adminLogin(HttpSession session, String name, String pass) throws SQLException {
         Admin admin = adminService.adminLogin(name, pass);
         if (admin!=null){
             List<User> users = adminService.adminFindUsers();

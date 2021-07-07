@@ -23,6 +23,22 @@
 
 </head>
 <body class="login-bg">
+<script>
+    $(function () {
+        $("#login").click(function () {
+            $.ajax({
+                type: "post",
+                url: "adminLogin.do",
+                dataType:"json",
+                contentType:"application/json;charset=utf-8",
+                success: function(data) {
+                    //传出data的相关操作
+                    window.location.href = "admin-list.html";
+                }
+            })
+        })
+    })
+</script>
 
 <div class="login layui-anim layui-anim-up">
     <div class="message">管理登录</div>
@@ -33,7 +49,7 @@
         <hr class="hr15">
         <input name="pass" lay-verify="required" placeholder="密码"  type="password" class="layui-input">
         <hr class="hr15">
-        <input value="登录" lay-submit lay-filter="login" style="width:100%;" type="submit">
+        <input id="login" value="登录" lay-submit lay-filter="login" style="width:100%;" type="submit">
         <hr class="hr20" >
     </form>
 </div>
