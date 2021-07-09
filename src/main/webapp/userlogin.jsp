@@ -12,7 +12,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/jquery-3.2.1.js"></script>
-    <script language = "javascript" src = "/js/code.js"></script>
     <link rel="stylesheet" href="css/register1.css">
 </head>
 <body>
@@ -48,7 +47,7 @@
                         <input class="password" type="password" name="pass" placeholder="密码"> <br>
                         <input class="detail" type="submit" value="登录">
                     </form>
-                    <p class="zhuce"><a href="userregister.jsp">注册新账号</a>|<a href="userindexsend.jsp">返回首页</a></p>
+                    <p class="zhuce"><a href="userregister.jsp">注册账号</a>|<a href="userindexsend.jsp">返回首页</a></p>
                 </div>
             </div>
         </div>

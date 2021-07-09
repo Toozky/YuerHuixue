@@ -166,4 +166,14 @@ public class InstrumentController {
         }
     }
 
+    @RequestMapping("instrumentInfo.do")
+    public String instrumentInfo(HttpServletRequest request) throws SQLException {
+        int id = Integer.parseInt(request.getParameter("id"));
+
+        Instrument instrument = instrumentService.findInstrumentById(id);
+        request.setAttribute("instrument", instrument);
+
+        return "instrumentinfo";
+    }
+
 }
