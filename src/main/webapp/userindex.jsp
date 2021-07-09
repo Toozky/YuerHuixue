@@ -256,19 +256,18 @@
     </div>
 </div>
 
-<div id="head_hot_goods_wrap">
-    <div id="head_hot_goods_title">
-        <span class="title_span">悦耳明星单品</span>
-        <div id="head_hot_goods_change">
-            <span id="head_hot_goods_prave"><</span>
-            <span id="head_hot_goods_next">></span>
+<div id="head_hot_goods_wrap_1">
+    <div id="head_hot_goods_title_1">
+        <span class="title_span_1">悦耳明星单品</span>
+        <div id="head_hot_goods_change_1">
+            <span id="head_hot_goods_prave_1"><</span>
+            <span id="head_hot_goods_next_1">></span>
         </div>
     </div>
-    <div id="head_hot_goods_content">
+    <div id="head_hot_goods_content_1">
         <ul>
             <%
                 for (Instrument instrument : instruments) {
-
                     %>
                         <li>
                             <%
@@ -284,6 +283,40 @@
                             <a><%=instrument.getDescription()%></a>
                         </li>
                     <%
+                }
+            %>
+        </ul>
+    </div>
+</div>
+
+<div id="head_hot_goods_wrap_2">
+    <div id="head_hot_goods_title_2">
+        <span class="title_span_1">乐器类型</span>
+        <div id="head_hot_goods_change_2">
+            <span id="head_hot_goods_prave_2"><</span>
+            <span id="head_hot_goods_next_2">></span>
+        </div>
+    </div>
+    <div id="head_hot_goods_content_2">
+        <ul>
+            <%
+                for (Instype instype : instypes) {
+
+            %>
+            <li>
+                <%
+                    if(instype.getPicpath() != null && instype.getPicpath().length() != 0){
+                %>
+                <a  href="instypeToInstrument.do?id=<%=instype.getId()%>"><img src="<%=instype.getPicpath()%>" width="200" height="200"
+                                                                             alt="<%=instype.getPicpath().substring(instype.getPicpath().lastIndexOf("/") + 1)%>"
+                                                                             title="<%=instype.getPicpath().substring(instype.getPicpath().lastIndexOf("/") + 1)%>"></a>
+                <%
+                    }
+                %>
+                <a href="instypeToInstrument.do?id=<%=instype.getId()%>"><%=instype.getName()%></a>
+                <a><%=instype.getDescription()%></a>
+            </li>
+            <%
                 }
             %>
         </ul>
@@ -343,7 +376,7 @@
     <div class="foot_note_box">
         <div class="foot_note_wrap">
             <div class="foot_note_con">
-                <span class="foot_logo"><img src="images/mi-logo.png" width="38px" height="38px"></span>
+                <span class="foot_logo"><img src="images/mi-logo.png"></span>
                 <span class="foot_note_txt">
                     <a>悦耳官网</a><h>|</h><a>悦聊</a><h>|</h><a>悦游戏</a><h>|</h><a>悦读</a><h>|</h>
                     <a>悦服务</a><h>|</h><a>问题反馈</a>
@@ -356,8 +389,5 @@
 
 <script type="text/javascript" src="js/xiaomi.js"></script>
 
-<style>
-    .copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
-</style>
 </body>
 </html>

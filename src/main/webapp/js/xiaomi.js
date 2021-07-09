@@ -97,34 +97,68 @@ $(function(){
 })
 //小米明星border-top color设置
 $(function(){
-    $("#head_hot_goods_content").children().children().eq(0).css("border-color","#ff7600");
-    $("#head_hot_goods_content").children().children().eq(1).css("border-color","red");
-    $("#head_hot_goods_content").children().children().eq(2).css("border-color","#adff2f");
-    $("#head_hot_goods_content").children().children().eq(3).css("border-color","#6495ed");
-    $("#head_hot_goods_content").children().children().eq(4).css("border-color","#6a5acd");
-    $("#head_hot_goods_content").children().children().eq(5).css("border-color","#ff7600");
-    $("#head_hot_goods_content").children().children().eq(6).css("border-color","red");
-    $("#head_hot_goods_content").children().children().eq(7).css("border-color","#adff2f");
-    $("#head_hot_goods_content").children().children().eq(8).css("border-color","#6495ed");
-    $("#head_hot_goods_content").children().children().eq(9).css("border-color","#6a5acd");
+    $("#head_hot_goods_content_1").children().children().eq(0).css("border-color","#ff7600");
+    $("#head_hot_goods_content_1").children().children().eq(1).css("border-color","red");
+    $("#head_hot_goods_content_1").children().children().eq(2).css("border-color","#adff2f");
+    $("#head_hot_goods_content_1").children().children().eq(3).css("border-color","#6495ed");
+    $("#head_hot_goods_content_1").children().children().eq(4).css("border-color","#6a5acd");
+    $("#head_hot_goods_content_1").children().children().eq(5).css("border-color","#ff7600");
+    $("#head_hot_goods_content_1").children().children().eq(6).css("border-color","red");
+    $("#head_hot_goods_content_1").children().children().eq(7).css("border-color","#adff2f");
+    $("#head_hot_goods_content_1").children().children().eq(8).css("border-color","#6495ed");
+    $("#head_hot_goods_content_1").children().children().eq(9).css("border-color","#6a5acd");
 })
 //控制小米明星left
-$("#head_hot_goods_prave").click(function(){
-     $("#head_hot_goods_content").children("ul").animate({
+$("#head_hot_goods_prave_1").click(function(){
+     $("#head_hot_goods_content_1").children("ul").animate({
          left:"-1226px"
      },300)
 })
-$("#head_hot_goods_next").click(function(){
-    $("#head_hot_goods_content").children("ul").animate({
+$("#head_hot_goods_next_1").click(function(){
+    $("#head_hot_goods_content_1").children("ul").animate({
         left:"0"
     },300)
 })
-$("#head_hot_goods_prave").hover(function(){
+$("#head_hot_goods_prave_1").hover(function(){
     $(this).css("color","#ff6700");
 },function(){
     $(this).css("color","#BEBEBE");
 })
-$("#head_hot_goods_next").hover(function(){
+$("#head_hot_goods_next_1").hover(function(){
+    $(this).css("color","#ff6700");
+},function(){
+    $(this).css("color","#BEBEBE");
+})
+
+$(function(){
+    $("#head_hot_goods_content_2").children().children().eq(0).css("border-color","#ff7600");
+    $("#head_hot_goods_content_2").children().children().eq(1).css("border-color","red");
+    $("#head_hot_goods_content_2").children().children().eq(2).css("border-color","#adff2f");
+    $("#head_hot_goods_content_2").children().children().eq(3).css("border-color","#6495ed");
+    $("#head_hot_goods_content_2").children().children().eq(4).css("border-color","#6a5acd");
+    $("#head_hot_goods_content_2").children().children().eq(5).css("border-color","#ff7600");
+    $("#head_hot_goods_content_2").children().children().eq(6).css("border-color","red");
+    $("#head_hot_goods_content_2").children().children().eq(7).css("border-color","#adff2f");
+    $("#head_hot_goods_content_2").children().children().eq(8).css("border-color","#6495ed");
+    $("#head_hot_goods_content_2").children().children().eq(9).css("border-color","#6a5acd");
+})
+//控制小米明星left
+$("#head_hot_goods_prave_2").click(function(){
+    $("#head_hot_goods_content_2").children("ul").animate({
+        left:"-1226px"
+    },300)
+})
+$("#head_hot_goods_next_2").click(function(){
+    $("#head_hot_goods_content_2").children("ul").animate({
+        left:"0"
+    },300)
+})
+$("#head_hot_goods_prave_2").hover(function(){
+    $(this).css("color","#ff6700");
+},function(){
+    $(this).css("color","#BEBEBE");
+})
+$("#head_hot_goods_next_2").hover(function(){
     $(this).css("color","#ff6700");
 },function(){
     $(this).css("color","#BEBEBE");

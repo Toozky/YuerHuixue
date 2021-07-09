@@ -85,8 +85,6 @@ public class UserController {
     @RequestMapping("userModify.do")
     public String userUpdate(User user, HttpSession session) throws SQLException {
 
-        System.out.println(user);
-        System.out.println("11111111111111");
         Boolean b = userService.userModify(user);
         if (b){
             session.setAttribute("user", user);

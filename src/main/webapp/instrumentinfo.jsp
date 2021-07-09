@@ -107,12 +107,8 @@
     <!-- logo模块 -->
     <div class="logo">
         <h1>
-            <a href="index2.html" title="悦耳官网"></a>
+            <a href="userIndex.do" title="悦耳官网"></a>
         </h1>
-    </div>
-    <!-- 列表页的秒杀模块 -->
-    <div class="sk">
-        <img src="images/sk.png" alt="">
     </div>
     <!-- search搜索模块 -->
     <div class="search">
@@ -128,7 +124,7 @@
     </div>
     <!-- 购物车模块 -->
     <div class="shopcar">
-        <a href="./shap_car.html">我的购物车</a>
+        <a href="#">我的购物车</a>
 <%--        <i class="count">2</i>--%>
     </div>
 </header>
@@ -243,14 +239,14 @@
                     <td>
                         <select>
                             <option>
-                                <a href="javascript:;">3年全保修 ￥199.00</a>
+                                <a href="javascript:;">3月任何问题退换￥199.00</a>
                             </option>
                         </select>
                     </td>
                     <td>
                         <select>
                             <option>
-                                <a href="javascript:;">3月任何问题退换 ￥299.00</a>
+                                <a href="javascript:;">3年全保修￥299.00</a>
                             </option>
                         </select>
                     </td>
@@ -368,10 +364,6 @@
 </div>
 
 <script type="text/javascript" src="js/xiaomi.js"></script>
-
-<style>
-    .copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
-</style>
 
 </body>
 </html>

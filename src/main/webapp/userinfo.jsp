@@ -87,7 +87,7 @@
                     }
                 %></label>
             <br /><br />
-            <p class="zhuce"><a href="usermodify.jsp">修改信息</a>|<a href="userIndex.do">返回首页</a></p>
+            <p class="zhuce"><a href="usermodify.jsp">修改信息</a>|<a href="userDelete.do">删除账户</a>|<a href="userIndex.do">返回首页</a></p>
         </div>
     </div>
 </div>

@@ -2,6 +2,7 @@ package com.yuerhuixue.controller;
 
 import com.yuerhuixue.pojo.Instrument;
 import com.yuerhuixue.pojo.Instype;
+import com.yuerhuixue.service.InstrumentService;
 import com.yuerhuixue.service.InstypeService;
 import com.yuerhuixue.util.ImageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,10 @@ public class InstypeController {
     @Autowired
     @Qualifier("instypeServiceImpl")
     private InstypeService instypeService;
+
+    @Autowired
+    @Qualifier("instrumentServiceImpl")
+    private InstrumentService instrumentService;
     
     @RequestMapping("instypeList.do")
     public String instypeList(HttpServletRequest request) throws SQLException {
@@ -146,12 +151,23 @@ public class InstypeController {
 
     @RequestMapping("instypeToInstrument.do")
     public String instypeToInstrument(Integer id, HttpServletRequest request) throws SQLException {
+
+        //乐器
+        List<Instrument> instruments = instrumentService.instrumentList();
+        request.setAttribute("instruments", instruments);
+
+        //乐器类型
+        List<Instype> instypes = instypeService.instypeList();
+        request.setAttribute("instypes", instypes);
+
+        Instype instype = instypeService.findInstypeById(id);
         List<Instrument> findInstruments = instypeService.findInstrumentByInstype(id);
         if (findInstruments != null){
+            request.setAttribute("instype", instype);
             request.setAttribute("findInstruments", findInstruments);
             return "instypetoinstrument";
         }else {
-            return "instypelist";
+            return "userindex";
         }
     }
 
