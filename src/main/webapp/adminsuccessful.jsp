@@ -131,7 +131,8 @@
                             <td><%=user.getPass()%></td>
                             <td><%=user.getBusinessman()?"是":"否"%></td>
                             <td class="td-status">
-                                <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td>
+                                <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span>
+                            </td>
                             <td class="td-manage">
                                 <a onclick="member_stop(this,'10001')" href="javascript:;"  title="启用">
                                     <i class="layui-icon">&#xe601;</i>
@@ -141,6 +142,7 @@
                                 </a>
                                 <a title="删除" onclick="member_del(this,'要删除的id')" href="adminDeleteUser.do?id=<%=user.getId()%>">
                                     <i class="layui-icon">&#xe640;</i>
+                                </a>
                             </td>
                         </tr>
                         <%

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.ws.Response;
@@ -31,7 +32,7 @@ public class AdminController {
             List<User> users = adminService.adminFindUsers();
             session.setAttribute("users",users);
             session.setAttribute("admin",admin);
-            return "adminsuccessful";
+            return "adminindex";
         }else {
             return "adminlogin";
         }
@@ -77,7 +78,7 @@ public class AdminController {
             session.setAttribute("admin",admin);
             return "adminmodify";
         }else {
-            return "adminsuccessful";
+            return "adminlogin";
         }
     }
 
@@ -87,7 +88,7 @@ public class AdminController {
         if (b){
             session.setAttribute("admin",admin);
         }
-        return "adminsuccessful";
+        return "admininfo";
     }
 
     @RequestMapping("adminUpdateUserPage.do")
@@ -128,4 +129,39 @@ public class AdminController {
         return "adminsuccessful";
     }
 
+   /*@RequestMapping("adminInfoPage.do")
+    public String adminInfoPage(HttpServletRequest request,Admin admin) throws SQLException{
+        Admin findAdmin = adminService.adminFindById(admin.getId());
+        if (findAdmin.toString().equals(admin.toString())){
+            request.setAttribute("admin",admin);
+            return "admininfo";
+        }else {
+            return "adminlogin";
+        }
+    }*/
+
+    @RequestMapping("adminInfoPage.do")
+    public String adminInfoPage(){
+
+            return "admininfo";
+    }
+
+    /*@RequestMapping("adminAndUsersInfoPage.do")
+    public String adminAndUsersInfoPage(HttpServletRequest request) throws SQLException{
+        Admin admin=(Admin)request.getAttribute("admin");
+        Admin findAdmin = adminService.adminFindById(admin.getId());
+        if (findAdmin.toString().equals(admin.toString())){
+            request.setAttribute("admin",admin);
+            List<User> users = adminService.adminFindUsers();
+            request.setAttribute("users",users);
+            return "adminsuccessful";
+        }else {
+            return "adminlogin";
+        }
+    }*/
+
+    @RequestMapping("adminAndUsersInfoPage.do")
+    public String adminAndUsersInfoPage(){
+        return "adminsuccessful";
+    }
 }

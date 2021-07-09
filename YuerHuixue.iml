@@ -10,8 +10,13 @@
             <entry key="com.zeroturnaround.jrebel.remoting.ModuleRemoteServerPreviousEnabledSelection" value="instance" />
             <entry key="com.zeroturnaround.jrebel.remoting.ModuleRemoteServerSelection" value="off" />
             <entry key="jrebelEnabled" value="false" />
+            <entry key="lastExternalPluginCheckTime" value="1625704897501" />
+            <entry key="rebelXmlExternalGenerationNoAutoconvert" value="true" />
+            <entry key="rebelXmlGenerationType" value="ide" />
           </map>
         </option>
+        <option name="xmlDir" value="src/main/resources/" />
+        <option name="overrideStandardXmlFolder" value="true" />
       </configuration>
     </facet>
   </component>
