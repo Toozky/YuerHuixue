@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.yuerhuixue.pojo.User" %><%--
   Created by IntelliJ IDEA.
   User: pocoa
   Date: 2021/6/22
@@ -9,6 +9,10 @@
 <html>
 <head>
     <title>用户修改</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/zhuce.css">
+    <link rel="stylesheet" href="css/register1.css">
 </head>
 <body>
 
@@ -30,48 +34,52 @@
 <!-- 首部部分 start-->
 <div class="top">
     <img class="title" src="images/mi-logo.png"/>
-    <h4>修改悦耳账号</h4>
+    <h4>用户修改</h4>
     <div class="middle">
-        <form action="userRegister.do" method="post" enctype="multipart/form-data">
+        <form action="userModify.do" method="post" enctype="multipart/form-data">
             <div style="width:500px;float:left;margin:0 20px;">
+                <input type="text" name="id" hidden="hidden" value="${user.id}">
                 <br />
                 <label for="username" class="l">用户名：</label>
                 <div style="position:relative;display:inline;">
-                    <input id="username" type="text" name="name" placeholder="  输入用户名（必填）" style="height:30px;width:300px;padding-right:50px;">
+                    <input id="username" type="text" name="name" value="${user.name}" placeholder="  输入用户名（必填）" style="height:30px;width:300px;padding-right:50px;">
                 </div>
                 <br /><br />
                 <label for="phonenumber" class="l">手机号：</label>
                 <div class="d">
-                    <input id="phonenumber" type="text" name="tel" placeholder="  输入手机号（必填）" class="i" onkeyup="this.value=this.value.replace(/\D/g,'')"  maxlength="11">
+                    <input id="phonenumber" type="text" name="tel" value="${user.tel}" placeholder="  输入手机号（必填）" class="i" onkeyup="this.value=this.value.replace(/\D/g,'')"  maxlength="11">
                 </div>
                 <br /><br />
                 <label for="email" class="l">邮　箱：</label>
                 <div class="d">
-                    <input id="email" name="email" placeholder="  输入邮箱" type="text" class="i">
+                    <input id="email" name="email" value="${user.email}" placeholder="  输入邮箱" type="text" class="i">
                 </div>
                 <br /><br />
                 <label for="username" class="l">地　址：</label>
                 <div style="position:relative;display:inline;">
-                    <input id="address" type="text" name="address" placeholder="  输入地址（必填）" style="height:30px;width:300px;padding-right:50px;">
+                    <input id="address" type="text" name="address" value="${user.address}" placeholder="  输入地址（必填）" style="height:30px;width:300px;padding-right:50px;">
                 </div>
                 <br /><br />
                 <label for="login_password" class="l">密　码：</label>
                 <div class="d">
-                    <input id="login_password" type="password" name="pass" placeholder="  输入密码（必填）" class="i">
+                    <input id="login_password" type="password" value="${user.pass}" name="pass" placeholder="  输入密码（必填）" class="i">
                 </div>
                 <br /><br />
                 <label for="confirm_password" class="l">确认密码：</label>
                 <div class="d">
-                    <input id="confirm_password" type="password" placeholder="  输入密码（必填）" type="text" class="i">
+                    <input id="confirm_password" type="password" value="${user.pass}" placeholder="  输入密码（必填）" class="i">
                 </div>
                 <br /><br />
-                <input type="checkbox" name="agree" style="margin-left:100px;display:inline-block;" value="1" />
-                <span style="font-size:10px;">我已阅读并同意《用户注册协议》</span>
+                <label class="1">是否为二手卖家：</label>
+                <div class="d">
+                    <input name="businessman" type="radio" value="true" ${user.businessman?"checked='checked'":""}/>是 　
+                    <input name="businessman" type="radio" value="false" ${user.businessman?"":"checked='checked'"}/>否
+                </div>
                 <br /><br />
-                <input type="submit" value="注册"
+                <input type="submit" value="修改"
                        style="margin-left:30px;height:30px;width:300px;background-color:#FF6700;display:inline-block; border:none;color:white;font-size: 14px;" />
                 <br>
-                <p class="zhuce"><a href="userRegisterCancel.do">取消注册</a></p>
+                <p class="zhuce"><a href="userModifyCancel.do">取消修改</a></p>
             </div>
         </form>
 

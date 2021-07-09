@@ -1,7 +1,8 @@
 <%@ page import="com.yuerhuixue.pojo.Instrument" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.yuerhuixue.pojo.Instype" %>
-<%@ page import="com.yuerhuixue.pojo.User" %><%--
+<%@ page import="com.yuerhuixue.pojo.User" %>
+<%--
   Created by IntelliJ IDEA.
   User: pocoa
   Date: 2021/7/6
@@ -17,8 +18,6 @@
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
     <script src="js/jquery.animate-colors-min.js"></script>
 
-    <meta name="referrer" content="no-referrer">
-
     <%
         List<Instrument> instruments = (List<Instrument>) request.getAttribute("instruments");
         List<Instype> instypes = (List<Instype>) request.getAttribute("instypes");
@@ -26,6 +25,8 @@
 </head>
 <style>
     .dropbtn {
+        margin-top: 10px;
+        margin-bottom: 10px;
         padding: #px;
         font-size: #px;
         border: none;
@@ -78,7 +79,7 @@
                     <div class="dropdown" id="head_car">
                         <button class="dropbtn"><%=user.getName()%></button>
                         <div class="dropdown-content" id="car_content" style="height: 0px;width:0px ;background-color: #edffc6;z-index: 999">
-                            <a >个人资料</a>
+                            <a href="userinfo.jsp">个人信息</a>
                             <a href="userLogout.do">注销登录</a>
                         </div>
                     </div>
@@ -96,9 +97,9 @@
                 <%
             }
         %>
-
     </div>
 </div>
+
 <div id="main_head_box">
     <div id="menu_wrap">
         <div id="menu_logo">
@@ -273,13 +274,13 @@
                             <%
                                 if(instrument.getPicpath() != null && instrument.getPicpath().length() != 0){
                             %>
-                            <a><img src="<%=instrument.getPicpath()%>" width="200" height="200"
+                            <a  href="instrumentInfo.do?id=<%=instrument.getId()%>"><img src="<%=instrument.getPicpath()%>" width="200" height="200"
                                     alt="<%=instrument.getPicpath().substring(instrument.getPicpath().lastIndexOf("/") + 1)%>"
                                     title="<%=instrument.getPicpath().substring(instrument.getPicpath().lastIndexOf("/") + 1)%>"></a>
                             <%
                                 }
                             %>
-                            <a><%=instrument.getName()%></a>
+                            <a href="instrumentInfo.do?id=<%=instrument.getId()%>"><%=instrument.getName()%></a>
                             <a><%=instrument.getDescription()%></a>
                         </li>
                     <%
@@ -299,9 +300,9 @@
                 <li class="font_top_i">|</li>
                 <li>15天免费换货</li>
                 <li class="font_top_i">|</li>
-                <li>满150元包邮</li>
+                <li>满199元包邮</li>
                 <li class="font_top_i">|</li>
-                <li>520余家售后网点</li>
+                <li>独家售后网点</li>
             </ul>
         </div>
         <div class="foot_bottom">

@@ -13,7 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/zhuce.css">
     <link rel="stylesheet" href="css/register1.css">
-    <script src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
 </head>
 <body>
 
@@ -63,11 +62,8 @@
                     <br /><br />
                     <label for="confirm_password" class="l">确认密码：</label>
                     <div class="d">
-                        <input id="confirm_password" type="password" placeholder="  输入密码（必填）" type="text" class="i">
+                        <input id="confirm_password" type="password" placeholder="  输入密码（必填）" class="i">
                     </div>
-                    <br /><br />
-                    <input type="checkbox" name="agree" style="margin-left:100px;display:inline-block;" value="1" />
-                    <span style="font-size:10px;">我已阅读并同意《用户注册协议》</span>
                     <br /><br />
                     <input type="submit" value="注册"
                            style="margin-left:30px;height:30px;width:300px;background-color:#FF6700;display:inline-block; border:none;color:white;font-size: 14px;" />

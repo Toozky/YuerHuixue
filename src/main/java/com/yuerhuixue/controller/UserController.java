@@ -43,24 +43,29 @@ public class UserController {
         request.setAttribute("instypes", instypes);
 
         //用户
-        session.setAttribute("user", null);
+        User user = (User) session.getAttribute("user");
+        if (user == null){
+            session.setAttribute("user", null);
+        }
+
         return "userindex";
     }
 
     @RequestMapping("userLogin.do")
     public String userLogin(String name, String pass, HttpSession session, HttpServletRequest request) throws SQLException {
+
+        //乐器
+        List<Instrument> instruments = instrumentService.instrumentList();
+        request.setAttribute("instruments", instruments);
+
+        //乐器类型
+        List<Instype> instypes = instypeService.instypeList();
+        request.setAttribute("instypes", instypes);
+
         User user = userService.userLogin(name, pass);
+
         if (user!=null){
             session.setAttribute("user", user);
-
-            //乐器
-            List<Instrument> instruments = instrumentService.instrumentList();
-            request.setAttribute("instruments", instruments);
-
-            //乐器类型
-            List<Instype> instypes = instypeService.instypeList();
-            request.setAttribute("instypes", instypes);
-
             return "userindex";
         }else {
             return "userlogin";
@@ -79,29 +84,43 @@ public class UserController {
 
     @RequestMapping("userModify.do")
     public String userUpdate(User user, HttpSession session) throws SQLException {
+
+        System.out.println(user);
+        System.out.println("11111111111111");
         Boolean b = userService.userModify(user);
         if (b){
             session.setAttribute("user", user);
-            return "usersuccessful";
+            return "userinfo";
         }else {
             return "usermodify";
         }
     }
 
     @RequestMapping("userDelete.do")
-    public String userDelete(HttpSession session) throws SQLException {
+    public String userDelete(HttpSession session,HttpServletRequest request) throws SQLException {
+
+        //乐器
+        List<Instrument> instruments = instrumentService.instrumentList();
+        request.setAttribute("instruments", instruments);
+
+        //乐器类型
+        List<Instype> instypes = instypeService.instypeList();
+        request.setAttribute("instypes", instypes);
+
         User user = (User) session.getAttribute("user");
         Boolean b = userService.userDelete(user);
+
         if (b){
-            session.removeAttribute("user");
-            return "userlogin";
+            session.setAttribute("user", null);
+            return "userindex";
         }else {
-            return "usersuccessful";
+            return "userinfo";
         }
     }
 
     @RequestMapping("userLogout.do")
     public String userLogout(HttpSession session, HttpServletRequest request) throws SQLException {
+
         //乐器
         List<Instrument> instruments = instrumentService.instrumentList();
         request.setAttribute("instruments", instruments);
@@ -116,7 +135,7 @@ public class UserController {
 
     @RequestMapping("userModifyCancel.do")
     public String userModifyCancel(){
-        return "usersuccessful";
+        return "userinfo";
     }
 
     @RequestMapping("userRegisterCancel.do")
