@@ -186,7 +186,7 @@
             <table>
                 <tr>
                     <td>类 型</td>
-                    <td><a style="border: 0"><%=instrument.getInstype().getName()%></a></td>
+                    <td><a href="instypeToInstrument.do?id=<%=instrument.getInstype().getId()%>" style="border: 0"><%=instrument.getInstype().getName()%></a></td>
                 </tr>
                 <tr>
                     <td>品 牌</td>
