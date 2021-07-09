@@ -91,7 +91,7 @@
                     </div> </a> </li>
                 <li> <a href="#">
                     <div class="clearfix">
-                        <span class="pull-left"> <i class="iconfont btn btn-info">&#xe6ba;</i> 粉丝 </span>
+                        <span class="pull-left"> <i class="iconfont btn btn-info">&#xe6ba;</i> 好友消息 </span>
                         <span class="pull-right badge badge-info">+11</span>
                     </div> </a> </li>
                 <li> <a href="javascript:;" onclick="xadmin.add_tab('统计页面','email.html')"> 查看所有消息 <i class="iconfont">&#xe69b;</i> </a> </li>
@@ -100,19 +100,19 @@
 
         </li>
         <li class="layui-nav-item">
-            <a href="javascript:;">admin</a>
+            <a href="javascript:;">${admin.name}</a>
             <dl class="layui-nav-child">
                 <!-- 二级菜单 -->
                 <dd>
-                    <a onclick="xadmin.open('个人信息','one_set.html')">个人信息</a></dd>
+                    <a onclick="xadmin.open('个人信息','adminInfoPage.do')">个人信息</a></dd>
                 <dd>
-                    <a onclick="xadmin.open('切换帐号','login.html')">切换帐号</a></dd>
+                    <a href="adminlogin.jsp">切换帐号</a></dd>
                 <dd>
-                    <a href="./login.html">退出</a></dd>
+                    <a href="adminlogin.jsp">退出</a></dd>
             </dl>
         </li>
         <li class="layui-nav-item to-index">
-            <a href="userindexend.jsp">前台首页</a></li>
+            <a href="userIndex.do">前台首页</a></li>
     </ul>
 
 
@@ -127,7 +127,7 @@
     <div id="side-nav">
         <ul id="nav">
             <li>
-                <a href="javascript:;" onclick="xadmin.add_tab('我的桌面','welcome.html')">
+                <a href="javascript:;" onclick="xadmin.add_tab('我的桌面','adminwelcome.jsp')">
                     <i class="layui-icon left-nav-li" lay-tips="首页">&#xe68e;</i>
                     <cite>首页</cite>
                     <i class="iconfont nav_right">&#xe697;</i></a>
@@ -332,7 +332,7 @@
     <div id="side-nav">
         <ul id="nav">
             <li>
-                <a href="javascript:;" onclick="xadmin.add_tab('我的桌面','welcome.html')">
+                <a href="javascript:;" onclick="xadmin.add_tab('我的桌面','adminwelcome.jsp')">
                     <i class="layui-icon left-nav-li" lay-tips="首页">&#xe68e;</i>
                     <cite>首页</cite>
                     <i class="iconfont nav_right">&#xe697;</i></a>
@@ -433,7 +433,7 @@
         </div>
         <div class="layui-tab-content">
             <div class="layui-tab-item layui-show">
-                <iframe src='./welcome.html' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
+                <iframe src='adminwelcome.jsp' frameborder="0" scrolling="yes" class="x-iframe"></iframe>
             </div>
         </div>
         <div id="tab_show"></div>
