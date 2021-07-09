@@ -30,11 +30,15 @@ public class OrderDetailSimpleServiceImpl implements OrderDetailSimpleService {
         List<OrderDetailSimple> orderDetailSimples = orderDetailMapper.orderDetailFindByOrderMajorId(id);
 
         List<OrderDetail> orderDetails=new ArrayList<>();
-        OrderDetail orderDetail=new OrderDetail();
+        OrderDetail orderDetail;
 
         for (OrderDetailSimple order : orderDetailSimples) {
+            orderDetail=new OrderDetail();
             orderDetail.setNumber(order.getNumber());
             orderDetail.setInstrument(instrumentMapper.findInstrumentById(order.getInstruments_id()));
+            System.out.println("*****");
+            System.out.println(order.getInstruments_id());
+            System.out.println("*****");
             orderDetail.setOrderMajor(orderMajorMapper.orderMajorFindById(order.getOrder_major_id()));
             orderDetails.add(orderDetail);
         }
