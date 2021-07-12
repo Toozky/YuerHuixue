@@ -48,7 +48,7 @@
 
     <delete id="instrumentDelete" parameterType="integer">
         delete from tb_instrument
-        where id=#{id}
+        where id=#{id};
     </delete>
 
     <insert id="instrumentInsert" parameterType="instrument">

@@ -282,7 +282,7 @@
                     <i class="iconfont nav_right">&#xe697;</i></a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="login.html" target="_blank">
+                        <a href="adminlogin.jsp" target="_blank">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>登录页面</cite></a>
                     </li>
@@ -346,19 +346,19 @@
                     <i class="iconfont nav_right">&#xe697;</i></a>
                 <ul class="sub-menu">
                     <li>
-                        <a onclick="xadmin.add_tab('商品列表','goodslist.html')">
+                        <a onclick="xadmin.add_tab('商品列表','instrumentList.do')">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>商品列表</cite></a>
+                    </li>
+                    <li>
+                        <a onclick="xadmin.add_tab('商品类型','instypeList.do')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>商品类型</cite></a>
                     </li>
                     <li>
                         <a onclick="xadmin.add_tab('商品品牌','brand.html')">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>商品品牌</cite></a>
-                    </li>
-                    <li>
-                        <a onclick="xadmin.add_tab('商品类型','commodity-type.html')">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>商品类型</cite></a>
                     </li>
                     <li>
                         <a onclick="xadmin.add_tab('商品回收站','goods-recovery.html')">
