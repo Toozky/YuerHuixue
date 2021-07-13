@@ -29,8 +29,8 @@
 <body >
 
 <div class="dvhead">
-    <div class="dvlogo"><a href="bbslist.jsp">社区</a></div>
-    <div class="dvsearch"></div>
+    <div class="dvlogo"><a href="shequ.do">社区</a></div>
+    <div class="dvreg">当前用户：${user.name}</div>
     <!-- <div class="dvreg">
         用户名：&nbsp;<a>用户</a>
     </div> -->
@@ -67,6 +67,7 @@
                 </div>
                 <div class="layui-form-item">
                     <button class="layui-btn" lay-filter="*" lay-submit>立即发布</button>
+                    <a class="layui-btn" lay-filter="*" href="shequ.do" lay-submit>取消</a>
                 </div>
             </form>
         </div>

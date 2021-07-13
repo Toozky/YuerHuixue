@@ -1,6 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.yuerhuixue.pojo.Bbs" %>
-<%@ page import="com.yuerhuixue.pojo.Instrument" %><%--
+<%@ page import="com.yuerhuixue.pojo.Instrument" %>
+<%@ page import="com.yuerhuixue.pojo.User" %><%--
   Created by IntelliJ IDEA.
   User: pocoa
   Date: 2021/6/23
@@ -12,7 +13,7 @@
 <head>
     <title>社区</title>
 </head>
-<link rel="stylesheet" href="shequ/css/head.css"/>
+<link rel="stylesheet" href="bbs/css/head.css"/>
 <style>
 
     .table11_7 table {
@@ -49,14 +50,26 @@
 
 
 <body>
+<%
+    User user=(User)session.getAttribute("user");
+    String msg="当前未登录";
+    if (user!=null){
+        msg="当前用户："+user.getName();
+    }
+%>
 <div class="dvhead">
-    <div class="dvlogo"><a href="bbslist.jsp">社区</a></div>
-    <div class="dvsearch"></div>
+    <div class="dvlogo"><a href="shequ.do">社区</a></div>
+    <div class="dvreg"><%=msg%></div>
     <!-- <div class="dvreg">
         用户名：&nbsp;<a>用户</a>
     </div> -->
 </div>
-
+<div>
+    <br>
+    <a href="shequad.do">　添加内容　</a>
+    <a href="userindexsend.jsp" style="float: right">　返回首页　</a><br>
+    <br>
+</div>
 <table class="table11_7" >
     <thead>
     <tr>
@@ -81,9 +94,6 @@
 
     </tbody>
 </table>
-
-<a href="shequad.do">添加内容</a><br>
-<a href="userindexsend.jsp">返回首页</a><br>
 
 </body>
 </html>
