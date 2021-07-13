@@ -40,8 +40,22 @@
         where id=#{id}
     </delete>
 
-    <select id="userNameFindById" resultType="java.lang.String">
-        select name from tb_user where id=#{id}
+    <select id="userNameFindById" resultType="string">
+        select name
+        from tb_user
+        where id=#{id}
     </select>
+
+    <select id="userIdFindByNameAndTel" resultType="integer">
+        select id
+        from tb_user
+        where name=#{name} and tel=#{tel}
+    </select>
+
+    <update id="userPassModify">
+        update tb_user
+        set pass=#{pass}
+        where id=#{id}
+    </update>
 
 </mapper>

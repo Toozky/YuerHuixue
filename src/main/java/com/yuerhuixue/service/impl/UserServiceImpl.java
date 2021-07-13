@@ -34,4 +34,11 @@ public class UserServiceImpl implements UserService {
         return userMapper.userDelete(user);
     }
 
+    @Override
+    public Boolean userForgetPass(String name, String tel, String pass) throws SQLException {
+        Integer id = userMapper.userIdFindByNameAndTel(name, tel);
+        Boolean b = userMapper.userPassModify(id, pass);
+        return b;
+    }
+
 }
