@@ -114,7 +114,7 @@
                 <li class="menu_li">打击乐</li>
                 <li class="menu_li">其他</li>
                 <li class="menu_li">服务</li>
-                <li class="menu_li">社区</li>
+                <li class="menu_li"><a href="shequ.do">社区</a></li>
             </ul>
         </div>
         <div id="find_wrap">

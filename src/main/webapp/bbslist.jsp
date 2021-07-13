@@ -83,7 +83,7 @@
 </table>
 
 <a href="shequad.do">添加内容</a><br>
-<a href="index.jsp">返回首页</a><br>
+<a href="userindexsend.jsp">返回首页</a><br>
 
 </body>
 </html>

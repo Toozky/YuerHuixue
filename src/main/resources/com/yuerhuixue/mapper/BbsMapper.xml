@@ -24,13 +24,13 @@
 
     <select id="shequList" parameterType="Bbs" resultType="com.yuerhuixue.pojo.Bbs">
         select user,type,content
-        from tb_shequ
+        from tb_bbs
 
     </select>
 
     <insert id="shequInsert" >
         insert
-        into tb_shequ (user,type,content)
+        into tb_bbs (user,type,content)
         values (#{user}, #{type},  #{content});
     </insert>
 

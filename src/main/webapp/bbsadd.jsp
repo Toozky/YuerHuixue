@@ -1,5 +1,6 @@
 <%@ page import="com.yuerhuixue.pojo.Bbs" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="com.yuerhuixue.pojo.User" %><%--
   Created by IntelliJ IDEA.
   User: pocoa
   Date: 2021/6/25
@@ -7,6 +8,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    User admin=(User)session.getAttribute("user");
+    if (admin==null){
+        response.sendRedirect("userlogin.jsp");
+    }else{
+%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -54,7 +61,8 @@
                 <div class="layui-form-item">
                     <label for="L_title" class="layui-form-label">用户</label>
                     <div class="layui-input-block">
-                        <input type="text"  name="user" placeholder="输入用户名（必填）" required lay-verify="required" autocomplete="off" class="layui-input">
+                        <input type="text" value="${user.name}" disabled="disabled" required lay-verify="required" autocomplete="off" class="layui-input">
+                        <input type="text" value="${user.name}" name="user" hidden="hidden">
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -96,3 +104,6 @@
 </script>
 </body>
 </html>
+<%
+    }
+%>
