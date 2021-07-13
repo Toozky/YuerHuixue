@@ -141,4 +141,21 @@ public class UserController {
         return "userlogin";
     }
 
+    @RequestMapping("userForgetPass.do")
+    public String userForgetPass(HttpServletRequest request) throws SQLException {
+        //接受参数
+        String name = request.getParameter("name");
+        String tel = request.getParameter("tel");
+        String pass = request.getParameter("pass");
+
+        Boolean b = userService.userForgetPass(name, tel, pass);
+
+        if (b){
+            return "userlogin";
+        }else {
+            return "userforgetpass";
+        }
+
+    }
+
 }

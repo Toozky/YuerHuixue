@@ -47,7 +47,9 @@
                         <input class="password" type="password" name="pass" placeholder="密码"> <br>
                         <input class="detail" type="submit" value="登录">
                     </form>
-                    <p class="zhuce"><a href="userregister.jsp">注册账号</a>|<a href="userIndex.do">返回首页</a></p>
+                    <p class="zhuce"><a href="userforgetpass.jsp">忘记密码</a>|
+                                     <a href="userregister.jsp">注册账号</a>|
+                                     <a href="userIndex.do">返回首页</a></p>
                 </div>
             </div>
         </div>

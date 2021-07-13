@@ -24,4 +24,10 @@ public interface UserMapper {
     //根据ID查姓名
     String userNameFindById(@Param("user_id")Integer id) throws SQLException;
 
+    //根据用户名和手机号查询id
+    Integer userIdFindByNameAndTel(@Param("name") String name, @Param("tel") String tel) throws SQLException;
+
+    //根据id修改密码
+    Boolean userPassModify(@Param("id") Integer id, @Param("pass") String pass) throws SQLException;
+
 }
