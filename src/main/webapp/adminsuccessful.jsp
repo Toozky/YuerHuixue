@@ -24,9 +24,8 @@
 <div class="x-nav">
           <span class="layui-breadcrumb">
             <a href="">首页</a>
-            <a href="">演示</a>
             <a>
-              <cite>导航元素</cite>
+              <cite>用户管理</cite>
             </a>
             <a>　当前管理员：${admin.name}</a>
           </span>
