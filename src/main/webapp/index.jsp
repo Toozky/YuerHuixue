@@ -21,6 +21,9 @@
     <a href="instypeList.do">乐器类型管理</a><br>
     <hr>
     <a href="orderMajorList.do">查看所有订单</a><br>
+    <hr>
+    <a href="shequ.do">社区</a><br>
+
 
 
 </body>

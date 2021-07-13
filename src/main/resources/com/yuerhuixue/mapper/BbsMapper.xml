@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuerhuixue.mapper.BbsMapper">
+
+    <resultMap id="instrumentToInstype" type="instrument">
+        <id property="id" column="aid"></id>
+        <result property="name" column="aname"></result>
+        <result property="price" column="aprice"></result>
+        <result property="stock" column="astock"></result>
+        <result property="picpath" column="apicpath"></result>
+        <result property="brand" column="abrand"></result>
+        <result property="description" column="adescription"></result>
+
+        <!--<association property="instype" javaType="instype">-->
+            <!--<id property="id" column="bid"></id>-->
+            <!--<result property="name" column="bname"></result>-->
+            <!--<result property="picpath" column="bpicpath"></result>-->
+            <!--<result property="description" column="bdescription"></result>-->
+        <!--</association>-->
+    </resultMap>
+
+
+    <select id="shequList" parameterType="Bbs" resultType="com.yuerhuixue.pojo.Bbs">
+        select user,type,content
+        from tb_shequ
+
+    </select>
+
+    <insert id="shequInsert" >
+        insert
+        into tb_shequ (user,type,content)
+        values (#{user}, #{type},  #{content});
+    </insert>
+
+</mapper>
