@@ -56,7 +56,7 @@
     .dropdown:hover .dropdown-content {display: block;}
     .dropdown:hover .dropbtn {background-color: grey;}
 </style>
-<body>
+
 <div class="head_box">
     <div id="head_wrap">
         <div id="head_nav">
@@ -291,7 +291,7 @@
             </table>
         </div>
         <!-- <button>购买</button> -->
-        <a href="./dingdan.html">
+        <a href="userShoppingCart.do?id=<%=instrument.getId()%>">
             <input class="button" type="button" value="购买">
         </a>
     </div>

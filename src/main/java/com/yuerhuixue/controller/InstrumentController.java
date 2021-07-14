@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -174,6 +176,26 @@ public class InstrumentController {
         request.setAttribute("instrument", instrument);
 
         return "instrumentinfo";
+    }
+
+    @RequestMapping("userShoppingCart.do")
+    public String userShoppingCart(HttpServletRequest request, HttpSession session) throws SQLException {
+
+        //判断用户是否登录
+        if (session.getAttribute("user") != null){
+
+            //根据id查找乐器
+            int id = Integer.parseInt(request.getParameter("id"));
+
+            Instrument shoppingCart = instrumentService.findInstrumentById(id);
+
+            request.setAttribute("shoppingCart", shoppingCart);
+            return "usershoppingcart";
+
+        }else {
+            return "userlogin";
+        }
+
     }
 
 }
