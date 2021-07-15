@@ -290,6 +290,7 @@
                 </tr>
             </table>
         </div>
+
         <!-- <button>购买</button> -->
         <a href="userShoppingCart.do?id=<%=instrument.getId()%>">
             <input class="button" type="button" value="购买">
